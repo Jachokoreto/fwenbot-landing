@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
                 </div>
                 <hr className="mt-6 h-px shrink-0 border border-solid border-black max-md:max-w-full" />
                 <p className="mt-6 self-center text-center text-base text-black">
-                    Copyright © 2024 XXX Labs. All rights reserved.
+                    Copyright © 2024 FWEN BOT - All Rights Reserved.
                 </p>
             </div>
         </footer>

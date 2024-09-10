@@ -7,7 +7,6 @@ const sitemapLinks = [
     'Home',
     'About us',
     'Features',
-    'Tokenomics',
     'Roadmap',
     'Recent Updates',
     'F.A.Q',

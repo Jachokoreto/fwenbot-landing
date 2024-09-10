@@ -3,7 +3,7 @@
  */
 import React from 'react'
 
-const usefulLinks = ['Whitepaper', 'Dexscreener', 'Coinmarketcap']
+const usefulLinks = ['Whitepaper']
 
 const UsefulLinks: React.FC = () => {
     return (

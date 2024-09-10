@@ -38,10 +38,9 @@ const features = [
 
 const Features: React.FC = () => {
     return (
-        <section className="container my-20 overflow-hidden px-6">
-            <h1 className="ml-2.5 self-start text-6xl font-semibold leading-[70px] max-md:max-w-full max-md:text-4xl max-md:leading-10">
-                Let FwenBot <br /> support your trading
-            </h1>
+        <section className="container mb-20 overflow-hidden px-6">
+
+            <h2 className='ml-8'>Features built for you</h2>
             <div className="mt-8 flex gap-3 max-md:flex-col">
                 <div className="flex flex-1 flex-col gap-3 max-md:ml-0 max-md:w-full">
                     {features.slice(0, 2).map((feature, index) => (

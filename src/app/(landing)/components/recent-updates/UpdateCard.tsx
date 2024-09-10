@@ -13,7 +13,7 @@ const UpdateCard: React.FC<UpdateCardProps> = ({
     content,
     isLastCard,
 }) => {
-    const cardClasses = `flex flex-col self-stretch px-6 py-6 my-auto bg-white rounded-2xl border border-black border-solid min-w-[240px] shadow-[2px_2px_0px_rgba(0,0,0,1)] min-w-[348px] max-md:px-5 ${
+    const cardClasses = `flex flex-col self-stretch px-6 py-6 my-auto bg-yellow-100 rounded-2xl border border-black border-solid min-w-[240px] shadow-[2px_2px_0px_rgba(0,0,0,1)] min-w-[348px] max-md:px-5 ${
         isLastCard ? 'items-start' : ''
     }`
 

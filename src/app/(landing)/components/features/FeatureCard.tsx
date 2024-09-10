@@ -20,10 +20,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             <div className="flex gap-5 max-md:flex-col">
                 <div className="flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
                     <div className="-mr-11 flex flex-col max-md:mt-8">
-                        <h2 className="self-start text-3xl font-semibold">
+                        <h3 className="self-start text-2xl font-medium">
                             {title}
-                        </h2>
-                        <p className="mt-4 text-xl opacity-80">{description}</p>
+                        </h3>
+                        <p className="mt-4 text-lg opacity-80">{description}</p>
                     </div>
                 </div>
                 <div className="ml-5 flex w-6/12 flex-col max-md:ml-0 max-md:w-full">

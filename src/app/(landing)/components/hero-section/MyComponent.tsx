@@ -8,7 +8,7 @@ import MainContent from './MainContent'
 import { motion } from 'framer-motion'
 
 const MyComponent: React.FC = () => {
-    const headerNavItems = ['Tokenomic', 'Roadmap', 'About us']
+    const headerNavItems = ['Roadmap', 'About us']
 
     return (
         <div className="flex w-full flex-col px-9 max-md:max-w-full max-md:px-5">

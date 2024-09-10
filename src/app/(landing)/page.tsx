@@ -7,6 +7,9 @@ import Community from './components/community'
 import Roadmap from './components/roadmap'
 import RecentUpdates from './components/recent-updates'
 import Footer from './components/Footer/Footer'
+import WhyChooseFwenbot from './components/why-choose-fwenbot'
+import EarnWithFwenbot from './components/earn-with-Fwenbot'
+import FAQ from './components/faq'
 
 export default function Home() {
     return (
@@ -14,10 +17,13 @@ export default function Home() {
             <HeroSection />
             <PartnersBanner />
             <Intro />
+            <WhyChooseFwenbot />
             <Features />
+            <EarnWithFwenbot />
             <Community />
             <Roadmap />
             <RecentUpdates />
+            <FAQ />
             <Footer />
         </main>
     )
