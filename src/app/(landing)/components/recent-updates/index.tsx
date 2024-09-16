@@ -42,11 +42,11 @@ const updates: Update[] = [
 
 const RecentUpdates: React.FC = () => {
     return (
-        <section className="relative my-20 flex flex-col">
+        <section className="relative my-20 flex flex-col container">
             <h1 className="self-center text-6xl font-bold max-md:mt-10 max-md:text-4xl">
                 Recent Updates
             </h1>
-            <div className="container mt-3.5 flex min-h-[405px] w-full items-center gap-6 self-center overflow-x-auto p-4 max-md:max-w-full">
+            <div className=" mt-3.5 flex min-h-[405px] w-full items-center gap-6 self-center overflow-x-auto p-4 max-md:max-w-full">
                 {updates.map((update, index) => (
                     <UpdateCard
                         key={index}

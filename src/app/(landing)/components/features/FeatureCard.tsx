@@ -1,10 +1,12 @@
 import React from 'react'
+import Image from 'next/image'
 
 interface FeatureCardProps {
     title: string
     description: string
     imageSrc: string
     backgroundColor: string
+    isComingSoon: boolean
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -12,30 +14,31 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
     description,
     imageSrc,
     backgroundColor,
+    isComingSoon,
 }) => {
     return (
-        <section
-            className={`h-full overflow-hidden px-8 py-8 ${backgroundColor} rounded-2xl max-md:mr-2.5 max-md:max-w-full max-md:pl-5`}
+        <div
+            className={`${backgroundColor} flex h-full max-h-80 min-h-[300px] flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:w-full md:flex-row md:p-8 md:pl-5 relative`}
         >
-            <div className="flex gap-5 max-md:flex-col">
-                <div className="flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
-                    <div className="-mr-11 flex flex-col max-md:mt-8">
-                        <h3 className="self-start text-2xl font-medium">
-                            {title}
-                        </h3>
-                        <p className="mt-4 text-lg opacity-80">{description}</p>
-                    </div>
+            {isComingSoon && (
+                <div className="absolute left-0 top-0 h-full w-full flex-1 backdrop-blur-lg z-10 flex justify-center items-center">
+                    <p className='text-3xl font-oswald -tracking-tighter'>Coming Soon</p>
                 </div>
-                <div className="ml-5 flex w-6/12 flex-col max-md:ml-0 max-md:w-full">
-                    <img
-                        loading="lazy"
-                        src={imageSrc}
-                        alt={title}
-                        className="mt-4 aspect-[1.25] w-full grow object-contain max-md:mt-10"
-                    />
-                </div>
+            )}
+            <div className="flex w-1/2 flex-col">
+                <h3 className="self-start text-2xl font-medium">{title}</h3>
+                <p className="mt-4 w-full text-lg opacity-80">{description}</p>
             </div>
-        </section>
+            <div className="relative h-full w-full flex-1">
+                <Image
+                    // loading="lazy"
+                    src={imageSrc}
+                    alt={title}
+                    className="aspect-[1.25] object-contain"
+                    fill
+                />
+            </div>
+        </div>
     )
 }
 

@@ -13,7 +13,7 @@ const Logo: React.FC<LogoProps> = ({ src }) => {
       loading="lazy"
       src={src}
       alt="Company Logo"
-      className="object-contain shrink-0 self-stretch my-auto w-36 aspect-[4.12]"
+      className="object-contain shrink-0 self-stretch my-auto w-28 md:w-36 aspect-[4.12]"
     />
   );
 };

@@ -15,7 +15,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc, navItems }) => {
     return (
         <header className="mt-3 flex w-full flex-wrap items-center justify-between gap-10 overflow-hidden rounded-full border border-black px-6 py-3 text-base font-medium shadow-[4px_4px_0px_rgba(0,0,0,1)] max-md:max-w-full max-md:px-5 bg-yellow-200">
             <Logo src={logoSrc} />
-            <nav className="my-auto flex min-w-[240px] items-center justify-center gap-5 self-stretch max-md:max-w-full">
+            <nav className="my-auto min-w-[240px] items-center justify-center gap-5 self-stretch max-md:max-w-full hidden md:flex">
                 {navItems.map((item, index) => (
                     <NavigationItem key={index} text={item} />
                 ))}

@@ -22,7 +22,7 @@ body {
 
 @layer base {
     h1 {
-        @apply font-oswald text-5xl font-semibold;
+        @apply font-oswald text-6xl font-medium;
     }
 
     h2 {
