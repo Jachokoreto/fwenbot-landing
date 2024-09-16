@@ -22,7 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         >
             {isComingSoon && (
                 <div className="absolute left-0 top-0 h-full w-full flex-1 backdrop-blur-lg z-10 flex justify-center items-center">
-                    <p className='text-3xl font-oswald -tracking-tighter'>Coming Soon</p>
+                    <p className='text-3xl font-oswald track'>Coming Soon</p>
                 </div>
             )}
             <div className="flex w-1/2 flex-col">

@@ -1,9 +1,14 @@
+'use client'
 import React from 'react'
 import { TbMoneybag } from 'react-icons/tb'
+import Lottie from 'lottie-react';
+import shillerAnimation from '@/lottie/shiller.json';
 
 const EarnWithFwenBot = () => {
     return (
         <section className="container my-20 overflow-hidden rounded-[40px] border-2 border-cyan-200 p-10 bg-cyan-200/20">
+            <div>
+
             <h1 className="ml-2.5 self-start max-md:max-w-full max-md:text-4xl max-md:leading-10">
                 {/* Features to<br /> support your trading */}
                 Earning with Fwen Bot
@@ -37,6 +42,8 @@ const EarnWithFwenBot = () => {
                     </p>
                 </li>
             </ul>
+            </div>
+            {/* <Lottie animationData={shillerAnimation} /> */}
         </section>
     )
 }

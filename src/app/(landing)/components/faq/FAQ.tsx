@@ -80,10 +80,10 @@ const faqContents = [
 
 const FAQ = () => {
     return (
-        <section className="container my-20">
-            <h1 className='w-full text-center'>F.A.Q</h1>
+        <section className="container my-20 flex justify-center">
+            <h1 className='text-center'>F.A.Q</h1>
             <Accordion.Root
-                className="mx-auto w-full max-w-xl space-y-3 mt-10"
+                className="max-w-xl space-y-3 ml-16"
                 type="single"
                 defaultValue="item-1"
                 collapsible
