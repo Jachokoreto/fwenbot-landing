@@ -19,7 +19,7 @@ const Community: React.FC = () => {
                 width={462}
                 height={574}
                 alt={'alt'}
-                className={`absolute left-[10%] aspect-[0.81] w-[116px] max-w-full self-center object-contain`}
+                className={`absolute left-[10%] max-md:top-[15%] aspect-[0.81] w-[116px] max-w-full self-center object-contain`}
             />
             <Image
                 loading="lazy"
@@ -27,7 +27,7 @@ const Community: React.FC = () => {
                 width={462}
                 height={574}
                 alt={'alt'}
-                className={`absolute right-[10%] aspect-[0.81] w-[116px] max-w-full self-center object-contain`}
+                className={`absolute right-[10%] max-md:top-[15%] aspect-[0.81] w-[116px] max-w-full self-center object-contain`}
             />
             <h2 className="mt-10 text-center text-4xl font-bold">
                 Join the community
