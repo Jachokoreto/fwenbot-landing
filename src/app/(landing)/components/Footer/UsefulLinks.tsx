@@ -9,7 +9,7 @@ const UsefulLinks: React.FC = () => {
     return (
         <nav className="flex w-[190px] flex-col">
             <h2 className="text-2xl font-medium opacity-60">Useful Links</h2>
-            <ul className="flex min-h-[215px] w-[190px] max-w-full flex-col whitespace-nowrap text-xl text-black">
+            <ul className="flex w-[190px] max-w-full flex-col whitespace-nowrap text-xl text-black">
                 {usefulLinks.map((link, index) => (
                     <li key={index}>{link}</li>
                 ))}

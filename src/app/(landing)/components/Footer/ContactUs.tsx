@@ -24,9 +24,9 @@ const socialIcons = [
 
 const ContactUs: React.FC = () => {
     return (
-        <section className="flex min-h-[237px] w-[265px] min-w-[240px] flex-col justify-between">
+        <section className="flex w-[265px] min-w-[240px] flex-col justify-between">
             <h2 className="text-2xl font-medium opacity-60">Contact Us</h2>
-            <div className="mt-3 flex min-h-[193px] items-start self-start">
+            <div className="mt-3 flex items-start self-start">
                 {/* {socialIcons.map((icon, index) => (
                     <img
                         key={index}
@@ -43,7 +43,7 @@ const ContactUs: React.FC = () => {
                 <Link href={""}>
                     <FaSquareXTwitter className="mr-4 aspect-square size-[40px] object-contain" />
                 </Link>
-                <Link href={""}>
+                <Link href={"https://discord.gg/rYzN89rG3G"}>
                     <FaDiscord className="mr-4 aspect-square size-[40px] object-contain" />
                 </Link>
             </div>

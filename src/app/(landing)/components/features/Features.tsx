@@ -51,7 +51,7 @@ const Features: React.FC = () => {
                         <FeatureCard key={index} {...feature} />
                     ))}
                 </div>
-                <div className="flex w-full flex-1 flex-col gap-3 max-md:mt-10 max-md:max-w-full">
+                <div className="flex w-full flex-1 flex-col gap-3  max-md:max-w-full">
                     {features.slice(2).map((feature, index) => (
                         <FeatureCard key={index} {...feature} />
                     ))}

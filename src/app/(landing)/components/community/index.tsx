@@ -11,7 +11,7 @@ const Community: React.FC = () => {
                 alt={'alt'}
                 width={462}
                 height={574}
-                className={`aspect-[0.81] w-[231px] max-w-full self-center object-contain`}
+                className={`aspect-[0.81] w-[231px] max-w-full self-center object-contain z-10`}
             />
             <Image
                 loading="lazy"

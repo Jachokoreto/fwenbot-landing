@@ -56,7 +56,7 @@ const Roadmap: React.FC<RoadmapProps> = () => {
             <p className="mt-4 text-xl text-black">
             We&apos;re actively listening to our community and working on innovative tools that empower our members with a competitive edge. With that in mind, here&apos;s a glimpse of what lies ahead for Fwen Bot. Our roadmap outlines the key milestones and exciting developments we&apos;re working on to bring our vision to life. Together with our community, we build the future of crypto trading on Discord.
             </p>
-            <div className="mt-8 flex gap-5 self-stretch max-md:max-w-full  overflow-x-auto">
+            <div className="mt-8 flex gap-5 self-stretch max-md:max-w-full overflow-x-auto p-2">
                 {phases.map((phase, index) => (
                     <PhaseCard
                         key={index}
