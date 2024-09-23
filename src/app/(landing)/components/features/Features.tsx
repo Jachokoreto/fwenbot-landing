@@ -1,11 +1,12 @@
 import React from 'react'
 import FeatureCard from './FeatureCard'
+import { motion } from 'framer-motion'
 
 const features = [
     {
         title: "Shiller's Profit",
         description:
-            "Transform your everyday Alpha Calls and trading tips with our innovative shilling feature — share valuable projects to the community and earn rewards from every successful trade.",
+            'Transform your everyday Alpha Calls and trading tips with our innovative shilling feature — share valuable projects to the community and earn rewards from every successful trade.',
         imageSrc:
             'https://cdn.builder.io/api/v1/image/assets/TEMP/7570659f0e4f047c5bad7843ef2cb3d6ccb782483ff7d0a6db0abb698b067d56?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
         backgroundColor: 'bg-yellow-400',
@@ -42,22 +43,45 @@ const features = [
 
 const Features: React.FC = () => {
     return (
-        <section className="container mb-20 overflow-hidden px-3 md:px-6 mt-10">
-
-            <h1 className=''>Features built for you</h1>
-            <div className="mt-8 flex gap-3 max-md:flex-col">
-                <div className="flex flex-1 flex-col gap-3 max-md:ml-0 max-md:w-full">
+        <motion.section
+            className="container mb-20 mt-10 h-screen overflow-hidden px-3 py-10 md:px-6"
+            initial={'initial'}
+            whileInView={'scrollIn'}
+            viewport={{ amount: 'some', once: true }}
+            variants={{
+                scrollIn: {
+                    transition: { staggerChildren: 0.2 },
+                },
+            }}
+        >
+            <motion.h1
+                className=""
+                variants={{
+                    initial: {
+                        opacity: 0,
+                        y: 20,
+                    },
+                    scrollIn: {
+                        opacity: 1,
+                        y: 0,
+                    },
+                }}
+            >
+                Features built for you
+            </motion.h1>
+            <motion.div className="mt-8 flex h-[80%] gap-3 max-md:flex-col">
+                <motion.div className="flex h-full flex-1 flex-col gap-3 max-md:ml-0 max-md:w-full">
                     {features.slice(0, 2).map((feature, index) => (
                         <FeatureCard key={index} {...feature} />
                     ))}
-                </div>
-                <div className="flex w-full flex-1 flex-col gap-3  max-md:max-w-full">
+                </motion.div>
+                <motion.div className="flex h-full w-full flex-1 flex-col gap-3 max-md:max-w-full">
                     {features.slice(2).map((feature, index) => (
                         <FeatureCard key={index} {...feature} />
                     ))}
-                </div>
-            </div>
-        </section>
+                </motion.div>
+            </motion.div>
+        </motion.section>
     )
 }
 

@@ -6,12 +6,14 @@ import React from 'react'
 
 interface NavigationItemProps {
     text: string
+    href: string
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({ text }) => {
+const NavigationItem: React.FC<NavigationItemProps> = ({ text, href }) => {
     return (
         <Link
-            href={'/'}
+        // scroll={false}
+            href={href}
             className="my-auto gap-2.5 self-stretch whitespace-nowrap rounded-xl bg-zinc-500 bg-opacity-0 px-4 py-2"
         >
             {text}

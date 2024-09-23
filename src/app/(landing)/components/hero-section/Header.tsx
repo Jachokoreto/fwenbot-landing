@@ -5,23 +5,60 @@ import React from 'react'
 import Button from '@/components/Button'
 import Logo from './Logo'
 import NavigationItem from './NavigationItem'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import Link from 'next/link'
+
+const navItems = [
+    { text: 'Roadmap', href: '#roadmap' },
+    { text: 'About', href: '#about' },
+]
 
 interface HeaderProps {
     logoSrc: string
-    navItems: string[]
 }
 
-const Header: React.FC<HeaderProps> = ({ logoSrc, navItems }) => {
+const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
+    const { scrollY } = useScroll()
+    const [hidden, setHidden] = React.useState(false)
+
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+        const previous = scrollY.getPrevious()
+        if (previous && latest > previous && latest > 150) {
+            setHidden(true)
+        } else {
+            setHidden(false)
+        }
+    })
+
     return (
-        <header className="mt-3 flex w-full flex-wrap items-center justify-between gap-10 overflow-hidden rounded-full border border-black px-6 py-3 text-base font-medium shadow-[4px_4px_0px_rgba(0,0,0,1)] max-md:max-w-full max-md:px-5 bg-yellow-200">
+        <motion.header
+            className="fixed left-1/2 top-2 z-20 mt-3 flex w-[95%] flex-wrap items-center justify-between gap-10 overflow-hidden rounded-full border border-black bg-yellow-200 px-6 py-3 text-base font-medium shadow-[4px_4px_0px_rgba(0,0,0,1)] max-md:max-w-full max-md:px-5"
+            initial={{ y: '-100%', x: '-50%' }}
+            variants={{
+                visible: { y: 0, x: '-50%' },
+                hidden: { y: '-150%', x: '-50%' },
+            }}
+            animate={hidden ? 'hidden' : 'visible'}
+            transition={{ duration: 0.35, ease: 'easeInOut' }}
+        >
             <Logo src={logoSrc} />
-            <nav className="my-auto min-w-[240px] items-center justify-center gap-5 self-stretch max-md:max-w-full hidden md:flex">
+            <nav className="my-auto hidden min-w-[240px] items-center justify-center gap-5 self-stretch max-md:max-w-full md:flex">
                 {navItems.map((item, index) => (
-                    <NavigationItem key={index} text={item} />
+                    <NavigationItem
+                        key={index}
+                        text={item.text}
+                        href={item.href}
+                    />
                 ))}
-                <Button text="Get Started" primary className="!px-4 !py-2 !shadow-none" />
+                <Link href="https://discord.gg/rYzN89rG3G">
+                    <Button
+                        text="Get Started"
+                        primary
+                        className="!px-4 !py-2 !shadow-none"
+                    />
+                </Link>
             </nav>
-        </header>
+        </motion.header>
     )
 }
 

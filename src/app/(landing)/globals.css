@@ -17,7 +17,7 @@
 }
 
 body {
-    @apply font-dm-sans bg-[#FFFEF1] text-neutral-800;
+    @apply bg-[#FFFEF1] font-dm-sans text-neutral-800;
 }
 
 @layer base {
@@ -27,9 +27,8 @@ body {
 
     h2 {
         @apply font-oswald text-4xl font-semibold;
-
     }
-    
+
     h3,
     h4,
     h5,
@@ -40,10 +39,25 @@ body {
     button {
         @apply font-oswald text-xl font-medium;
     }
+
+    * {
+        scroll-behavior: smooth;
+    }
 }
 
 @layer utilities {
     .text-balance {
         text-wrap: balance;
+    }
+
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* Hide scrollbar for IE, Edge and Firefox */
+    .no-scrollbar {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
     }
 }
