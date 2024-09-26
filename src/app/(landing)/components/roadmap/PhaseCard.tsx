@@ -24,7 +24,7 @@ const PhaseCard: React.FC<PhaseCardProps> = ({
                 </span>
             </div>
             {items.map((item, index) => (
-                <div className='flex mt-5'>
+                <div className='flex mt-5' key={index}>
                     <div  className='bg-black/30 size-2 rounded-full mt-2'/>
                     <p
                         key={index}
