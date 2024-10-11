@@ -44,7 +44,7 @@ const features = [
 const Features: React.FC = () => {
     return (
         <motion.section
-            className="container mb-20 mt-10 h-screen overflow-hidden px-3 py-10 md:px-6"
+            className="container mb-20 mt-10 h-screen overflow-hidden  py-10 "
             initial={'initial'}
             whileInView={'scrollIn'}
             viewport={{ amount: 'some', once: true }}

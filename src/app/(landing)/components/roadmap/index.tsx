@@ -67,7 +67,7 @@ const Roadmap: React.FC<RoadmapProps> = () => {
 
     return (
         <section
-            className="container relative my-20 flex w-full flex-col items-start self-center overflow-hidden rounded-[32px] bg-yellow-400 px-10 py-6 max-md:mt-10 max-md:max-w-full"
+            className="container relative my-20 flex w-full flex-col items-start self-center overflow-hidden rounded-[32px] bg-yellow-400  py-6 max-md:mt-10 max-md:max-w-full"
             ref={boxRef}
         >
             <h1 id="roadmap" className="z-10 text-6xl font-bold max-md:text-4xl">Roadmap</h1>

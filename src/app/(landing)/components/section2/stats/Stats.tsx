@@ -31,26 +31,24 @@ const StatItem = ({ title, value }: { title: string; value: string }) => {
 
 const Stats = () => {
     return (
-        <div className="w-full bg-yellow-200">
-            <motion.div
-                className="max-w-screen-xl mx-auto mb-16 mt-10 flex flex-wrap items-center justify-around bg-yellow-200"
-                initial={'initial'}
-                whileInView={'scrollIn'}
-                variants={{
-                    scrollIn: {
-                        transition: {
-                            staggerChildren: 0.2,
-                        },
+        <motion.div
+            className="mx-auto mb-16 mt-10 flex max-w-screen-xl flex-wrap items-center justify-around "
+            initial={'initial'}
+            whileInView={'scrollIn'}
+            variants={{
+                scrollIn: {
+                    transition: {
+                        staggerChildren: 0.2,
                     },
-                }}
-                viewport={{ amount: 'all'}}
-            >
-                <StatItem title="Total Trade Volume" value="100" />
-                <StatItem title="Total Users" value="1.2K" />
-                <StatItem title="Lifetime Volume" value="$88B" />
-                <StatItem title="Total Trade" value="100" />
-            </motion.div>
-        </div>
+                },
+            }}
+            viewport={{ amount: 'all' }}
+        >
+            <StatItem title="Total Trade Volume" value="100" />
+            <StatItem title="Total Users" value="1.2K" />
+            <StatItem title="Lifetime Volume" value="$88B" />
+            <StatItem title="Total Trade" value="100" />
+        </motion.div>
     )
 }
 

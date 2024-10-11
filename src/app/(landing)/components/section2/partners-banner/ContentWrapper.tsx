@@ -9,7 +9,7 @@ interface ContentWrapperProps {
 
 const ContentWrapper: React.FC<ContentWrapperProps> = ({ children }) => {
   return (
-    <div className="flex flex-col justify-center items-center py-1 pr-7 pl-8 w-full max-w-full border border-yellow-200 border-solid min-h-[83px] rounded-[32px] max-md:px-5">
+    <div className="flex flex-col justify-center items-center w-full max-w-full min-h-[83px]">
       {children}
     </div>
   );

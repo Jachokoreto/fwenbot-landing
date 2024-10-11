@@ -11,6 +11,7 @@ const config: Config = {
             fontFamily: {
                 oswald: ['var(--font-oswald)'],
                 'dm-sans': ['var(--font-dm-sans)'],
+                'bebas-neue': ['var(--font-bebas-neue)'],
             },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -30,6 +31,15 @@ const config: Config = {
             animation: {
                 slideDown: 'slideDown 300ms cubic-bezier(0.87, 0, 0.13, 1)',
                 slideUp: 'slideUp 300ms cubic-bezier(0.87, 0, 0.13, 1)',
+            },
+            container: {
+                padding: {
+                    DEFAULT: '1rem',
+                    sm: '2rem',
+                    lg: '5rem',
+                    xl: '6rem',
+                    '2xl': '7rem',
+                },
             },
         },
     },

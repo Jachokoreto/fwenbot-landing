@@ -80,7 +80,7 @@ const faqContents = [
 
 const FAQ = () => {
     return (
-        <section className="container my-20 flex justify-center flex-col md:flex-row px-4">
+        <section className="container my-20 flex justify-center flex-col md:flex-row">
             <h1 className='text-center mb-10'>F.A.Q</h1>
             <Accordion.Root
                 className="max-w-xl space-y-3 md:ml-16 "
