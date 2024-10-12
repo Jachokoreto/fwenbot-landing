@@ -67,7 +67,7 @@ const Intro = ({
             // viewport={{ amount: 'all', once: true }}
             style={{ y: exitY }}
         >
-            <div className="mb-0 flex w-full max-w-[1015px] flex-col-reverse justify-between gap-5 max-md:mb-2.5 max-md:max-w-full md:flex-row">
+            <div className="mb-0 flex w-full flex-col-reverse justify-between gap-5 md:flex-row">
                 <div className="flex max-w-[480px] flex-col gap-5 max-md:max-w-full">
                     {elements.map((element, index) => {
                         if (element.type === 'h1') {
@@ -113,7 +113,7 @@ const Intro = ({
                     autoPlay
                     muted
                     loop
-                    className="mx-auto my-auto aspect-[0.81] w-[300px] max-w-full shrink-0 object-contain md:mx-0 ml-auto"
+                    className="mx-auto my-auto aspect-[0.81] w-[400px] max-w-full shrink-0 object-contain md:mx-0 mx-auto"
                     style={{ scale: imageScale, y: imageY }}
                 >
                     <source src="/assets/Idle_1.webm" type="video/mp4" />
