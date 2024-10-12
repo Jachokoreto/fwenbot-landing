@@ -61,7 +61,7 @@ const Intro = ({
 
     return (
         <motion.div
-            className="sticky top-1/4 mx-auto w-[90vw] overflow-hidden rounded-[40px] bg-yellow-400 p-4 max-md:py-24 md:px-16 md:py-28"
+            className="sticky top-10 mx-auto w-[90vw] overflow-hidden rounded-[40px] bg-yellow-400 p-4 max-md:py-24 md:px-16 md:py-28"
             // initial={{ y: 100, opacity: 0 }}
             // whileInView={{ y: 0, opacity: 1 }}
             // viewport={{ amount: 'all', once: true }}
@@ -113,7 +113,7 @@ const Intro = ({
                     autoPlay
                     muted
                     loop
-                    className="mx-auto my-auto aspect-[0.81] w-[400px] max-w-full shrink-0 object-contain md:mx-0 mx-auto"
+                    className="mx-auto my-auto aspect-[0.81] w-[400px] max-w-full shrink-0 object-contain md:mx-0"
                     style={{ scale: imageScale, y: imageY }}
                 >
                     <source src="/assets/Idle_1.webm" type="video/mp4" />

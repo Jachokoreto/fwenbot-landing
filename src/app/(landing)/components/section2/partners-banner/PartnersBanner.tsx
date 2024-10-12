@@ -33,12 +33,7 @@ const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
     }
 
     return (
-        <div className="container relative mx-auto my-3 flex w-full flex-1 flex-col items-center">
-            <motion.h1 className="font-normal"
-            // style={{ y: transfromY(scrollYProgress, 1) }}
-            >
-                Our partners
-            </motion.h1>
+        <div className="container mx-auto my-3 flex w-full flex-col items-center min-h-[100px]">
             <motion.div className="mt-10 flex w-full justify-between gap-5">
                 {images.map((image, index) => (
                     <motion.div

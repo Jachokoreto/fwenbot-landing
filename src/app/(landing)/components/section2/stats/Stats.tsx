@@ -18,7 +18,7 @@ const StatItem = ({
 
     return (
         <motion.div
-            className="flex flex-col  bg-cyan-200 border-2 border-black p-6 rounded-[24px] h-[300px] justify-between max-sm:w-full md:flex-[40%] "
+            className="flex flex-col  bg-cyan-200 border-2 border-black p-6 rounded-[24px] h-full justify-between max-sm:w-full md:flex-[40%] "
             // variants={{
             //     initial: {
             //         opacity: 0,
@@ -73,15 +73,11 @@ const Stats = () => {
             // }}
             // viewport={{ amount: 'all' }}
         >
-            {/* <StatItem scrollYProgress={scrollYProgress} title="Total Trade Volume" value="100" />
-            <StatItem scrollYProgress={scrollYProgress} title="Total Users" value="1.2K" />
-            <StatItem scrollYProgress={scrollYProgress} title="Lifetime Volume" value="$88B" />
-            <StatItem scrollYProgress={scrollYProgress} title="Total Trade" value="100" /> */}
+
             <motion.h1 className='font-normal'>
                 Capture the market with Fwenbot
             </motion.h1>
-            <div className=' w-full gap-6 mb-16 mt-10 flex max-w-screen-xl flex-wrap items-center justify-around'>
-
+            <div className='w-full gap-6 mb-16 mt-10 h-full grid max-w-screen-xl items-center justify-around grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-rows-1'>
             {statVals.map((stat, index) => (
                 <StatItem
                     key={index}

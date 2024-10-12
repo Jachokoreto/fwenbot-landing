@@ -22,10 +22,10 @@ export const Section2b = () => {
             className="h-[160vh] w-screen relative bg-yellow-200"
             // style={{ background: backgroundColour }}
         >
-            <div className='sticky top-0 min-h-screen flex flex-col'>
+            <div className='sticky top-0 h-screen flex flex-col justify-center py-10'>
 
-            <PartnersBanner scrollYProgress={scrollYProgress} />
             <Stats />
+            <PartnersBanner scrollYProgress={scrollYProgress} />
 
             </div>
         </motion.section>
