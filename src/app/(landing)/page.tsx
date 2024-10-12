@@ -12,16 +12,24 @@ import WhyChooseFwenbot from './components/why-choose-fwenbot'
 import EarnWithFwenbot from './components/earn-with-Fwenbot'
 import FAQ from './components/faq'
 import Stats from './components/section2/stats'
-import PartnersAndStats from './components/section2'
-import Section2 from './components/section2'
+import Section2 from './components/section2/Section2'
+import Header from './components/hero-section/Header'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
+import { Section2b } from './components/section2/Section2b'
 
 export default function Home() {
     return (
-        <main className="flex min-h-screen flex-col items-center">
+        <motion.main
+            className="max-w-screen"
+            // style={{ background: backgroundColour }}
+        >
+            <Header logoSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/92be01a40e42b2667bf2ed01c42a67c00773eeedf8c9125b7bf8a471aaf3fd01?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171" />
             <HeroSection />
             {/* <PartnersBanner />
             <Stats /> */}
             <Section2 />
+            <Section2b />
             <WhyChooseFwenbot />
             <Features />
             <EarnWithFwenbot />
@@ -30,6 +38,6 @@ export default function Home() {
             <RecentUpdates />
             <FAQ />
             <Footer />
-        </main>
+        </motion.main>
     )
 }

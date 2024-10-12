@@ -2,7 +2,7 @@ import React from 'react'
 
 const WhyChooseFwenbot = () => {
     return (
-        <section className="container my-20 overflow-hidden ">
+        <section className="container my-20 overflow-hidden mx-auto ">
             <h1 className="ml-2.5 self-start max-md:max-w-full max-md:text-4xl max-md:leading-10">
                 {/* Features to<br /> support your trading */}
                 Why choose FwenBot?

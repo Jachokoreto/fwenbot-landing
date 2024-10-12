@@ -22,7 +22,7 @@ const AccordionTrigger = React.forwardRef<any, any>(
     ({ children, className, ...props }, forwardedRef) => (
         <Accordion.Header className="flex">
             <Accordion.Trigger
-                className={`hadow-mauve6 hover:bg-mauve2 group flex py-4  flex-1 items-center justify-between bg-yellow-200 px-6 leading-none  outline-none cursor-pointer`}
+                className={`hadow-mauve6 hover:bg-mauve2 group flex py-6 font-normal  flex-1 items-center justify-between bg-yellow-200 px-6 leading-none text-3xl  outline-none cursor-pointer`}
                 {...props}
                 ref={forwardedRef}
             >
@@ -80,10 +80,10 @@ const faqContents = [
 
 const FAQ = () => {
     return (
-        <section className="container my-20 flex justify-center flex-col md:flex-row">
+        <section className="container my-20 mx-auto flex justify-center flex-col">
             <h1 className='text-center mb-10'>F.A.Q</h1>
             <Accordion.Root
-                className="max-w-xl space-y-3 md:ml-16 "
+                className="w-full space-y-6"
                 type="single"
                 defaultValue="item-1"
                 collapsible

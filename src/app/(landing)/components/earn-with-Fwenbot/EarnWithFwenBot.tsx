@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const EarnWithFwenBot = () => {
     return (
-        <section className="container my-20 flex h-fit flex-col-reverse justify-around gap-8 overflow-hidden rounded-[40px] border-2 border-cyan-200 bg-cyan-200/20 md:flex-row">
+        <section className="container mx-auto my-20 flex flex-col-reverse justify-around items-center gap-8 overflow-hidden rounded-[40px] border-2 border-cyan-200 bg-cyan-200/20 md:flex-row h-[90vh]">
             <div className="">
                 <h1 className="self-start max-md:max-w-full max-md:text-4xl max-md:leading-10">
                     {/* Features to<br /> support your trading */}

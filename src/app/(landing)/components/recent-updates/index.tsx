@@ -39,7 +39,7 @@ const updates: Update[] = [
 
 const RecentUpdates: React.FC = () => {
     return (
-        <section className="container relative my-20 flex flex-col">
+        <section className="container mx-auto relative my-20 flex flex-col">
             <h1 className="text-6xl font-bold max-md:mt-10 max-md:text-4xl">
                 Recent Updates
             </h1>

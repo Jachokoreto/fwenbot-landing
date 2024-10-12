@@ -14,7 +14,7 @@ const RoadMap = () => {
     const [isMobile, setIsMobile] = useState(false)
     const { scrollYProgress } = useScroll({
         target: divRef,
-        offset: isMobile ? ['start end', '70% end'] : ['35% end', 'end end'],
+        offset: isMobile ? ['start end', '70% center'] : ['35% end', 'end end'],
     })
     const [selectedPhase, setSelectedPhase] = useState(0)
 
