@@ -43,16 +43,8 @@ const Phase = ({
     selectedPhase,
     setSelectedPhase,
 }: PhaseProps) => {
-    const y = useTransform(
-        scrollY,
-        [(index + 3) / 10, (index + 5) / 10],
-        [200, 0]
-    )
-    const opacity = useTransform(
-        scrollY,
-        [(index + 3) / 10, (index + 5) / 10],
-        [0, 1]
-    )
+    const y = useTransform(scrollY, phase.step, [200, 0])
+    const opacity = useTransform(scrollY, phase.step, [0, 1])
 
     return (
         <motion.div

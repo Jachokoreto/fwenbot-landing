@@ -11,18 +11,11 @@ import Phase from './Phase'
 
 const RoadMap = () => {
     const divRef = useRef<HTMLDivElement | null>(null)
-    const [isMobile, setIsMobile] = useState(false)
     const { scrollYProgress } = useScroll({
         target: divRef,
-        offset: isMobile ? ['start end', '70% center'] : ['35% end', 'end end'],
+        offset: ['35% end', 'end 95%'],
     })
     const [selectedPhase, setSelectedPhase] = useState(0)
-
-    useEffect(() => {
-        if (divRef && divRef.current) {
-            if (divRef.current.clientWidth < 1024) setIsMobile(true)
-        }
-    }, [divRef])
 
     return (
         <section className="flex h-full items-center justify-center py-32 lg:h-screen lg:py-0">
