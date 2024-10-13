@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
     // shadow-[4px_4px_0px_rgba(0,0,0,1)]
     return (
         <motion.header
-            className="fixed top-0 left-0 z-20 flex w-screen flex-wrap items-center justify-between gap-10 overflow-hidden border-b border-black bg-yellow-200 px-6 py-3 text-base font-medium"
+            className="fixed top-0 left-0 z-20 flex w-screen flex-wrap items-center justify-between gap-10 overflow-hidden border-b border-black bg-yellow-200 px-6 py-1 text-base font-medium"
             initial={{ y: '-100%' }}
             variants={{
                 visible: { y: 0 },
