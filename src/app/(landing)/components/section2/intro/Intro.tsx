@@ -67,7 +67,7 @@ const Intro = ({
             // viewport={{ amount: 'all', once: true }}
             style={{ y: exitY }}
         >
-            <div className="mb-0 flex w-full flex-col-reverse justify-between gap-5 md:flex-row">
+            <div className="mb-0 flex w-full flex-col-reverse justify-between gap-5 md:flex-row container mx-auto">
                 <div className="flex max-w-[480px] flex-col gap-5 max-md:max-w-full">
                     {elements.map((element, index) => {
                         if (element.type === 'h1') {

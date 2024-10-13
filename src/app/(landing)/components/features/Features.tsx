@@ -1,6 +1,6 @@
 import React from 'react'
 import FeatureCard from './FeatureCard'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const features = [
     {
@@ -13,15 +13,6 @@ const features = [
         isComingSoon: false,
     },
     {
-        title: 'Fwenbot Sniping',
-        description:
-            "Trading is made simple with Fwen Bot's intuitive interface, allowing you to execute buy and sell orders directly within Discord.",
-        imageSrc:
-            'https://cdn.builder.io/api/v1/image/assets/TEMP/954577fb4a47d02e8bb068b5f27a042fd4d20f3b5d5b60670909bc3ad1d49783?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
-        backgroundColor: 'bg-cyan-200',
-        isComingSoon: true,
-    },
-    {
         title: 'Simplistic Buy & Sell',
         description:
             "Trading is made simple with Fwen Bot's intuitive interface, allowing you to execute buy and sell orders directly within Discord.",
@@ -31,56 +22,58 @@ const features = [
         isComingSoon: false,
     },
     {
-        title: 'Advanced Trading Tools',
+        title: 'Fwenbot Sniping',
         description:
             "Trading is made simple with Fwen Bot's intuitive interface, allowing you to execute buy and sell orders directly within Discord.",
         imageSrc:
-            'https://cdn.builder.io/api/v1/image/assets/TEMP/ed6ec0b539f74c052bfa8e1b7fc8e0a940665477b8144030c7b6eb2bb67de490?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
-        backgroundColor: 'bg-yellow-400',
+            'https://cdn.builder.io/api/v1/image/assets/TEMP/954577fb4a47d02e8bb068b5f27a042fd4d20f3b5d5b60670909bc3ad1d49783?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
+        backgroundColor: 'bg-yellow-200',
         isComingSoon: true,
     },
+
 ]
 
 const Features: React.FC = () => {
+    const ref = React.useRef(null)
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['start end', 'end end'],
+    })
     return (
         <motion.section
-            className="container mb-20 mt-10 h-screen overflow-hidden  py-10 mx-auto "
-            initial={'initial'}
-            whileInView={'scrollIn'}
-            viewport={{ amount: 'some', once: true }}
-            variants={{
-                scrollIn: {
-                    transition: { staggerChildren: 0.2 },
-                },
-            }}
+            ref={ref}
+            className="mb-20 mt-10 h-[200vh] py-10"
+        // initial={'initial'}
+        // whileInView={'scrollIn'}
+        // viewport={{ amount: 'some', once: true }}
+        // variants={{
+        //     scrollIn: {
+        //         transition: { staggerChildren: 0.2 },
+        //     },
+        // }}
         >
-            <motion.h1
-                className=""
-                variants={{
-                    initial: {
-                        opacity: 0,
-                        y: 20,
-                    },
-                    scrollIn: {
-                        opacity: 1,
-                        y: 0,
-                    },
-                }}
-            >
-                Features built for you
-            </motion.h1>
-            <motion.div className="mt-8 flex h-[80%] gap-3 max-md:flex-col">
-                <motion.div className="flex h-full flex-1 flex-col gap-3 max-md:ml-0 max-md:w-full">
-                    {features.slice(0, 2).map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
+            <div className='sticky h-screen top-0 container overflow-hidden flex flex-col'>
+
+                <motion.h1
+                    className='mt-10 leading-relaxed'
+
+                    style={{ y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]) }}
+                >
+                    Effortless Trading, <br />Limitless Potential
+                </motion.h1>
+                {/* <motion.p>
+                    Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
+                </motion.p> */}
+                <motion.div className="mt-8 gap-5 flex w-fit"
+                    style={{ x: useTransform(scrollYProgress, [0.5, 0.8], ["0%", "-50%"]) }}
+                >
+                    {features.map((feature, index) => (
+                        <FeatureCard key={index} {...feature} style={{
+                            y: useTransform(scrollYProgress, [0.1 + index * 0.1, 0.3 + index * 0.1], ["100vh", "0vh"]),
+                        }} />
                     ))}
                 </motion.div>
-                <motion.div className="flex h-full w-full flex-1 flex-col gap-3 max-md:max-w-full">
-                    {features.slice(2).map((feature, index) => (
-                        <FeatureCard key={index} {...feature} />
-                    ))}
-                </motion.div>
-            </motion.div>
+            </div>
         </motion.section>
     )
 }

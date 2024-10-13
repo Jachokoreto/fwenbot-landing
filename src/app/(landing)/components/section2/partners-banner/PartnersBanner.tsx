@@ -25,20 +25,20 @@ const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
         },
     ]
 
-    const transfromY = (
-        scrollYProgress: MotionValue<number>,
-        index: number
-    ) => {
-        return useTransform(scrollYProgress, [0.2, index + 2 / 10], [200, 0])
-    }
-
     return (
         <div className="container mx-auto my-3 flex w-full flex-col items-center min-h-[100px]">
-            <motion.div className="mt-10 flex w-full justify-between gap-5">
+            <motion.div className="my-10 flex w-full justify-between gap-10">
                 {images.map((image, index) => (
                     <motion.div
                         key={index}
                         className="relative aspect-[3.69] flex-1 w-[255px] object-contain"
+                        style={{
+                            y: useTransform(
+                                scrollYProgress,
+                                [(index + 1) / 10, Math.min((index + 1) / 10 + 0.4, 1)],
+                                ["100vh", "0vh"]
+                            ),
+                        }}
                     >
                         <Image
                             loading="lazy"

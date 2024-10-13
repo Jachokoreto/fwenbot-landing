@@ -22,7 +22,7 @@ body {
 
 @layer base {
     h1 {
-        @apply font-oswald max-sm:text-6xl text-7xl font-medium;
+        @apply font-oswald max-sm:text-6xl text-7xl;
     }
 
     h2 {
@@ -57,7 +57,9 @@ body {
 
     /* Hide scrollbar for IE, Edge and Firefox */
     .no-scrollbar {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none;
+        /* IE and Edge */
+        scrollbar-width: none;
+        /* Firefox */
     }
 }

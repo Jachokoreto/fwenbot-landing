@@ -49,10 +49,10 @@ const MainContent: React.FC<MainContentProps> = ({
             ref={ref}
             whileInView={'scrollIn'}
             initial="initial"
-            transition={{delay:2}}
+            transition={{ delay: 2 }}
         >
             <motion.div
-                className="flex w-full flex-col items-center font-medium max-md:mt-10 max-md:max-w-full"
+                className="flex w-full flex-col items-center font-medium "
                 variants={{
                     scrollIn: {
                         transition: { staggerChildren: 0.2, delay: 1 },
@@ -94,28 +94,28 @@ const MainContent: React.FC<MainContentProps> = ({
                     Everyone needs a Fwen
                 </motion.h1>
                 <Link href="https://discord.gg/rYzN89rG3G">
-                <motion.div style={{opacity}}>
+                    <motion.div style={{ opacity }}>
 
-                    <Button
-                        text="Get Started"
-                        primary
-                        className="mt-6"
-                        variant={{
-                            initial: {
-                                scaleX: 0,
-                                rotateX: 20,
-                            },
-                            scrollIn: {
-                                scaleX: 1,
-                                rotateX: 0,
-                                transition: {
-                                    delay: 0.5,
+                        <Button
+                            text="Get Started"
+                            primary
+                            className="mt-6"
+                            variant={{
+                                initial: {
+                                    scaleX: 0,
+                                    rotateX: 20,
                                 },
-                            },
-                        }}
-                        
-                    />
-                </motion.div>
+                                scrollIn: {
+                                    scaleX: 1,
+                                    rotateX: 0,
+                                    transition: {
+                                        delay: 0.5,
+                                    },
+                                },
+                            }}
+
+                        />
+                    </motion.div>
 
                 </Link>
             </motion.div>
