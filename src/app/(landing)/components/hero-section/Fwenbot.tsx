@@ -19,11 +19,11 @@ const variant = {
     }),
 }
 
-const Letter = ({ children, custom, propY }: { children: string; custom: number, propY:MotionValue<number> }) => {
+const Letter = ({ children, custom, propY }: { children: string; custom: number, propY: MotionValue<number> }) => {
     const y = useTransform(() => Math.min(propY.get() * -500 + custom * 50, 0));
 
     return (
-        <motion.p variants={variant} custom={custom} className="" style={{y}}>
+        <motion.p variants={variant} custom={custom} className="text-[20vw]" style={{ y }}>
             {children}
         </motion.p>
     )
@@ -42,19 +42,12 @@ export const Fwenbot = ({
             initial="initial"
             animate="fadeIn"
         >
-            <motion.div className="font-bebas-neue flex gap-3 text-[20vw]">
+            <motion.div className="font-bebas-neue flex gap-3">
                 <Letter custom={4} propY={scrollYProgress}>F</Letter>
                 <Letter custom={3} propY={scrollYProgress}>W</Letter>
                 <Letter custom={2} propY={scrollYProgress}>E</Letter>
                 <Letter custom={1} propY={scrollYProgress}>N</Letter>
             </motion.div>
-            {/* <motion.img
-                loading="lazy"
-                src="https://cdn.builder.io/api/v1/image/assets/TEMP/824b838f6ddb638d7227637257c1860771fd765129f679b107de404472148f4e?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171"
-                alt="Decorative Image"
-                className="mt-14 aspect-[0.81] w-[231px] max-w-full self-center object-contain max-md:mt-10"
-            /> */}
-            {/* <div className='bg-red-500 size-10 absolute top-10 left-1/2 -translate-x-1/2'></div> */}
             <motion.video
                 autoPlay
                 muted
@@ -70,12 +63,12 @@ export const Fwenbot = ({
                     x: ["-30%", "-30%", 0],
                     opacity: [0, 1, 1]
                 }}
-            
-                transition={{ease:"linear", times: [0, 0.8, 1], duration: 1 }}
+
+                transition={{ ease: "linear", times: [0, 0.8, 1], duration: 1 }}
             >
                 <source src="/assets/Idle_1.webm" type="video/mp4" />
             </motion.video>
-            <motion.div className="font-bebas-neue flex gap-3 text-[20vw]">
+            <motion.div className="font-bebas-neue flex gap-3 ">
                 <Letter custom={1} propY={scrollYProgress}>B</Letter>
                 <Letter custom={2} propY={scrollYProgress}>O</Letter>
                 <Letter custom={3} propY={scrollYProgress}>T</Letter>

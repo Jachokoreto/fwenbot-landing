@@ -22,7 +22,7 @@ body {
 
 @layer base {
     h1 {
-        @apply font-oswald max-sm:text-6xl text-7xl;
+        @apply font-oswald max-sm:text-6xl text-7xl leading-normal;
     }
 
     h2 {
@@ -37,11 +37,15 @@ body {
     }
 
     button {
-        @apply font-oswald font-medium;
+        @apply font-medium;
     }
 
     * {
         scroll-behavior: smooth;
+    }
+
+    p {
+        @apply text-lg;
     }
 }
 

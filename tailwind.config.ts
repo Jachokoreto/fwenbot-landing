@@ -42,6 +42,10 @@ const config: Config = {
                     '2xl': '7rem',
                 },
             },
+            boxShadow: {
+                'cartoon': '2px 2px 0px rgba(0,0,0,1)',
+            },
+
         },
     },
     plugins: [],

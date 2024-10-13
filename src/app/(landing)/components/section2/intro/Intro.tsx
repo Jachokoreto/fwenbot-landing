@@ -46,7 +46,7 @@ const Intro = ({
         const end = Math.min(start + 0.3, 1)
         return useTransform(scrollYProgress, [start, end], [500, 0])
     })
-    const exitY = useTransform(scrollYProgress, [0.8, 1], [0, -1000])
+    const exitY = useTransform(scrollYProgress, [0.8, 1], ["-50%", "-100%"])
 
     // const calculateY = (scrollYProgress: number, delay:number) => {
     //     if (scrollYProgress < delay) {
@@ -55,20 +55,20 @@ const Intro = ({
     //         return sc
     //     }
     // }
-    const imageScale = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
+    const imageScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [0, 1, 1, 0])
     const imageY = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [-1000, 0, 0, 1000])
     // const imageRot = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
 
     return (
         <motion.div
-            className="sticky top-10 mx-auto w-[90vw] overflow-hidden rounded-[40px] bg-yellow-400 p-4 max-md:py-24 md:px-16 md:py-28"
+            className="sticky top-1/2 mx-auto w-[90vw] overflow-hidden rounded-[40px] bg-yellow-400 p-4 max-md:py-24 md:px-16 md:py-28"
             // initial={{ y: 100, opacity: 0 }}
             // whileInView={{ y: 0, opacity: 1 }}
             // viewport={{ amount: 'all', once: true }}
             style={{ y: exitY }}
         >
-            <div className="mb-0 flex w-full flex-col-reverse justify-between gap-5 md:flex-row container mx-auto">
-                <div className="flex max-w-[480px] flex-col gap-5 max-md:max-w-full">
+            <div className="mb-0 flex w-full flex-col-reverse justify-between md:flex-row container mx-auto">
+                <div className="flex flex-col gap-5 max-md:max-w-full">
                     {elements.map((element, index) => {
                         if (element.type === 'h1') {
                             return (
@@ -84,7 +84,7 @@ const Intro = ({
                             return (
                                 <motion.p
                                     key={index}
-                                    className="mt-10 text-xl max-md:max-w-full"
+                                    className="mt-10 text-xl max-md:max-w-full max-w-[480px]"
                                     style={{ y: transforms[index] }}
                                 >
                                     {element.content}

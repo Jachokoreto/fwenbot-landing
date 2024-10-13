@@ -49,7 +49,7 @@ const phases = [
     },
 ]
 
-interface RoadmapProps {}
+interface RoadmapProps { }
 
 const Roadmap: React.FC<RoadmapProps> = () => {
     const ref = React.useRef<HTMLDivElement>(null)
@@ -91,10 +91,10 @@ const Roadmap: React.FC<RoadmapProps> = () => {
             >
                 {phases.map((phase, index) => (
                     <PhaseCard
-                        key={index}
+                        key={`phase-${index}`}
                         phaseNumber={phase.number}
                         items={phase.items}
-                        // className={index === 2 ? 'w-[23%]' : 'w-[39%]'}
+                    // className={index === 2 ? 'w-[23%]' : 'w-[39%]'}
                     />
                 ))}
                 <div className="absolute left-1/2 top-10 w-[80%] -translate-x-1/2 border-b-4 border-gray-800" />

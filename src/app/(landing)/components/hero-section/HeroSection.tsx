@@ -8,6 +8,7 @@ const HeroSection = () => {
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ['start start', 'center start'],
+        layoutEffect: false
     })
     const backgroundColour = useTransform(
         scrollYProgress,
@@ -17,7 +18,7 @@ const HeroSection = () => {
     return (
         <motion.section
             className="h-[140vh]"
-            // style={{ background: backgroundColour }}
+        // style={{ background: backgroundColour }}
         >
             {/* <FloatingObjects /> */}
             {/* <AnimatedBg /> */}

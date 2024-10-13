@@ -3,6 +3,7 @@ import UpdateCard from './UpdateCard'
 import { FaChevronLeft } from 'react-icons/fa'
 import { FaChevronRight } from 'react-icons/fa'
 import { motion } from 'framer-motion'
+import { useResizeObserver } from 'usehooks-ts'
 
 interface Update {
     imageSrc: string
@@ -38,16 +39,37 @@ const updates: Update[] = [
 ]
 
 const RecentUpdates: React.FC = () => {
+    const ref = React.useRef<HTMLDivElement>(null)
+    const boxRef = React.useRef<HTMLDivElement>(null)
+
+    const { width = 0, height = 0 } = useResizeObserver({
+        ref,
+        box: 'border-box',
+    })
+
+    const { width: boxWidth = 0 } = useResizeObserver({
+        ref: boxRef,
+        box: 'content-box',
+    })
     return (
-        <section className="container mx-auto relative my-20 flex flex-col">
-            <h1 className="text-6xl font-bold max-md:mt-10 max-md:text-4xl">
+        <section className="container mx-auto relative my-20 flex flex-col" ref={boxRef}>
+            <h1>
                 Recent Updates
             </h1>
             <p className='mt-4'>
                 Check out some of our major updates and collaboration posts on
                 Twitter.
             </p>
-            <div className="mt-3.5 flex min-h-[405px] w-full items-center gap-6 self-center overflow-x-auto p-4 max-md:max-w-full">
+            {/* <div className="mt-3.5 flex min-h-[405px] w-full items-center gap-6 self-center overflow-x-auto p-4 max-md:max-w-full"> */}
+            <motion.div
+                ref={ref}
+                className="no-scrollbar relative z-10 mt-8 flex gap-12 p-2"
+                drag={'x'}
+                dragConstraints={{
+                    left: -(width - (boxWidth)),
+                    right: width - (boxWidth),
+                }}
+            >
                 {updates.map((update, index) => (
                     <UpdateCard
                         key={index}
@@ -56,8 +78,10 @@ const RecentUpdates: React.FC = () => {
                         content={update.content}
                         isLastCard={false}
                     />
-                ))}
-            </div>
+                ))
+                }
+            </motion.div>
+            {/* </div> */}
             <div className="mx-auto mt-8 flex gap-10">
                 <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
                     <FaChevronLeft />

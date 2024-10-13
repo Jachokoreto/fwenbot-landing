@@ -59,18 +59,10 @@ const MainContent: React.FC<MainContentProps> = ({
                     },
                 }}
             >
-                {/* <video  muted autoPlay playsInline className='w-full'>
-                    <source src="/Idle_export_1.mov" type="video/mp4" />
-                </video> */}
+
 
                 <Fwenbot scrollYProgress={scrollYProgress} />
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                {/* <img
-                    loading="lazy"
-                    src={logoSrc}
-                    alt="Main Logo"
-                    className="aspect-[3.46] w-[266px] max-w-full object-contain"
-                /> */}
+
                 <motion.div
                     className="mt-2 flex w-[132px] max-w-full gap-3.5 text-center text-base text-opacity-80"
                     variants={items}

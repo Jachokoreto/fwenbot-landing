@@ -17,12 +17,13 @@ import Header from './components/hero-section/Header'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { Section2b } from './components/section2/Section2b'
+import { CustomFAB } from './components/CustomFAB'
 
 export default function Home() {
     return (
         <motion.main
             className="max-w-screen"
-            // style={{ background: backgroundColour }}
+        // style={{ background: backgroundColour }}
         >
             <Header logoSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/92be01a40e42b2667bf2ed01c42a67c00773eeedf8c9125b7bf8a471aaf3fd01?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171" />
             <HeroSection />
@@ -38,6 +39,7 @@ export default function Home() {
             <RecentUpdates />
             <FAQ />
             <Footer />
+            <CustomFAB />
         </motion.main>
     )
 }

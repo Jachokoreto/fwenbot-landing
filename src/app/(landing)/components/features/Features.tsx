@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { use, useEffect } from 'react'
 import FeatureCard from './FeatureCard'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { cubicBezier, easeIn, easeInOut, motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useResizeObserver } from 'usehooks-ts'
 
 const features = [
     {
@@ -34,23 +35,33 @@ const features = [
 ]
 
 const Features: React.FC = () => {
-    const ref = React.useRef(null)
+    const ref = React.useRef<HTMLDivElement>(null)
+    const childRef = React.useRef(null)
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ['start end', 'end end'],
     })
+    const { width = 0, height = 0 } = useResizeObserver({
+        ref: childRef,
+        box: 'border-box',
+    })
+    const [offset, setOffset] = React.useState(0)
+
+    useEffect(() => {
+        if (ref.current) {
+            if (width < ref.current.clientWidth) {
+                setOffset(0)
+            } else
+                setOffset(-(width - ref.current.clientWidth / 2))
+        }
+    }, [ref, width])
+
+
+
     return (
         <motion.section
             ref={ref}
             className="mb-20 mt-10 h-[200vh] py-10"
-        // initial={'initial'}
-        // whileInView={'scrollIn'}
-        // viewport={{ amount: 'some', once: true }}
-        // variants={{
-        //     scrollIn: {
-        //         transition: { staggerChildren: 0.2 },
-        //     },
-        // }}
         >
             <div className='sticky h-screen top-0 container overflow-hidden flex flex-col'>
 
@@ -65,8 +76,17 @@ const Features: React.FC = () => {
                     Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
                 </motion.p> */}
                 <motion.div className="mt-8 gap-5 flex w-fit"
-                    style={{ x: useTransform(scrollYProgress, [0.5, 0.8], ["0%", "-50%"]) }}
+                    ref={childRef}
+                    style={{
+                        y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]),
+                        x: useSpring(useTransform(scrollYProgress, [0.5, 0.8], [0, offset]), {
+                            stiffness: 100,
+                            damping: 30,
+                            restDelta: 0.001
+                        })
+                    }}
                 >
+                    <div className='w-[50vw] md:w-[40vw] max-w-[400px]'></div>
                     {features.map((feature, index) => (
                         <FeatureCard key={index} {...feature} style={{
                             y: useTransform(scrollYProgress, [0.1 + index * 0.1, 0.3 + index * 0.1], ["100vh", "0vh"]),

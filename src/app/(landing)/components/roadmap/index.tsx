@@ -21,7 +21,7 @@ const RoadMap = () => {
         <section className="flex h-full items-center justify-center py-32 lg:h-screen lg:py-0">
             <div className="container relative flex h-fit w-full flex-col space-y-5 lg:h-[840px] lg:flex-row lg:space-x-14 lg:space-y-0 xl:h-[784px] xl:space-x-16">
                 <div className="flex w-full flex-col space-y-5 lg:w-[40%]">
-                    <p className="font-oswald text-[90px] font-bold">Roadmap</p>
+                    <h1>Roadmap</h1>
                     <p className="text-2xl leading-relaxed tracking-wide">
                         We&apos;re actively listening to our community and
                         working on innovative tools that empower our members

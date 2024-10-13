@@ -5,19 +5,31 @@ import Lottie from 'lottie-react'
 import shillerAnimation from '@/lottie/shiller2.json'
 import Description from './Description'
 import JoinCommunity from './JoinCommunity'
+import { motion, useScroll } from 'framer-motion'
 
 const EarnWithFwenBot = () => {
+    const ref = React.useRef<HTMLDivElement>(null)
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ['start end', 'end end'],
+    })
     return (
-        <section className="flex h-fit min-h-screen w-screen items-center bg-[#BDE0FE]/50 py-20">
-            <div className="container flex h-full flex-col space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0">
-                <Description />
-                <div className="h-full w-full rounded-2xl border border-black lg:w-1/3">
-                    <Lottie
-                        animationData={shillerAnimation}
-                        className="w-full md:w-1/2 lg:w-1/3"
-                    />
+        <section className="h-[400vh] w-screen bg-[#BDE0FE]/50 " ref={ref}>
+            <div className="container flex h-screen flex-col-reverse space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0  sticky top-0  py-20">
+                <div className='w-full md:w-1/3 relative h-full'>
+                    <Description scrollYProgress={scrollYProgress} />
+                    <JoinCommunity scrollYProgress={scrollYProgress} />
                 </div>
-                <JoinCommunity />
+                <div className="h-full w-full rounded-2xl lg:flex-1">
+                    <motion.video
+                        autoPlay
+                        muted
+                        loop
+                        className="w-full"
+                    >
+                        <source src="/assets/shiller_1.webm" type="video/mp4" />
+                    </motion.video>
+                </div>
             </div>
         </section>
     )
