@@ -3,7 +3,7 @@ import { MotionValue, motion, useTransform } from 'framer-motion'
 
 const Description = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
     return (
-        <motion.div className="flex w-full flex-col lg:flex-1 absolute top-1/2"
+        <motion.div className="flex w-full flex-col lg:flex-1 absolute top-1/2 overflow-hidden"
             style={{
                 opacity: useTransform(scrollYProgress, [0.2, 0.25, 0.55, 0.6], [0, 1, 1, 0]),
                 y: useTransform(scrollYProgress, [0.2, 0.25, 0.55, 0.6], ["200%", "-50%", "-50%", "-100%"]),

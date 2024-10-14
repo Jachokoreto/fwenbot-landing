@@ -52,7 +52,7 @@ const RecentUpdates: React.FC = () => {
         box: 'content-box',
     })
     return (
-        <section className="container mx-auto relative my-20 flex flex-col" ref={boxRef}>
+        <section className="container mx-auto relative my-20 flex flex-col overflow-hidden" ref={boxRef}>
             <h1>
                 Recent Updates
             </h1>

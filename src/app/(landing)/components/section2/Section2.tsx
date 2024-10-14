@@ -19,8 +19,8 @@ const Section2 = () => {
     return (
         <motion.section
             ref={ref}
-            className="h-[160vh] w-screen relative"
-            // style={{ background: backgroundColour }}
+            className="h-[300vh] md:h-[260vh] w-screen relative"
+        // style={{ background: backgroundColour }}
         >
             {/* <PartnersBanner scrollYProgress={scrollYProgress} />
             <Stats /> */}

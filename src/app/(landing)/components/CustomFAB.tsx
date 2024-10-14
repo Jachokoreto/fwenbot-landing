@@ -11,7 +11,7 @@ export const CustomFAB = () => {
     return (
         <Link href="https://discord.gg/rYzN89rG3G">
             <motion.button
-                className='fixed bottom-8 left-1/2 -translate-x-1/2 bg-cyan-200 border-2 border-black py-2 px-4 rounded-full shadow-cartoon flex items-center overflow-hidden'
+                className='fixed bottom-8 left-1/2 -translate-x-1/2 bg-cyan-200 border-2 border-black py-2 px-4 rounded-full shadow-cartoon flex items-center overflow-hidden z-20'
                 layout
                 whileHover={'hover'}
                 initial={'initial'}

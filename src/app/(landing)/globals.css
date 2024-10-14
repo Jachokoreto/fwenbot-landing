@@ -22,7 +22,7 @@ body {
 
 @layer base {
     h1 {
-        @apply font-oswald max-sm:text-6xl text-7xl leading-normal;
+        @apply font-oswald max-sm:text-4xl text-7xl leading-normal;
     }
 
     h2 {
@@ -65,5 +65,13 @@ body {
         /* IE and Edge */
         scrollbar-width: none;
         /* Firefox */
+    }
+
+    .sticky {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
     }
 }

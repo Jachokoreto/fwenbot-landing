@@ -34,7 +34,6 @@ export default function Home() {
             <WhyChooseFwenbot />
             <Features />
             <EarnWithFwenbot />
-            {/* <Community /> */}
             <Roadmap />
             <RecentUpdates />
             <FAQ />

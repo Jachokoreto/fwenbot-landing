@@ -15,21 +15,19 @@ const EarnWithFwenBot = () => {
     })
     return (
         <section className="h-[400vh] w-screen bg-[#BDE0FE]/50 " ref={ref}>
-            <div className="container flex h-screen flex-col-reverse space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0  sticky top-0  py-20">
+            <div className="mx-auto container flex h-screen flex-col-reverse space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0  sticky top-0 py-8 md:py-20">
                 <div className='w-full md:w-1/3 relative h-full'>
                     <Description scrollYProgress={scrollYProgress} />
                     <JoinCommunity scrollYProgress={scrollYProgress} />
                 </div>
-                <div className="h-full w-full rounded-2xl lg:flex-1">
-                    <motion.video
-                        autoPlay
-                        muted
-                        loop
-                        className="w-full"
-                    >
-                        <source src="/assets/shiller_1.webm" type="video/mp4" />
-                    </motion.video>
-                </div>
+                <motion.video
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full"
+                >
+                    <source src="/assets/shiller_1.webm" type="video/mp4" />
+                </motion.video>
             </div>
         </section>
     )
