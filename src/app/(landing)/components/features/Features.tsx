@@ -21,6 +21,7 @@ const features = [
             'https://cdn.builder.io/api/v1/image/assets/TEMP/19479398f7f765c336391803d83468435e1b6424b1d7b666f4feef4945fb48c3?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
         backgroundColor: 'bg-cyan-200',
         isComingSoon: false,
+        asset: "/asset/trading."
     },
     {
         title: 'Fwenbot Sniping',

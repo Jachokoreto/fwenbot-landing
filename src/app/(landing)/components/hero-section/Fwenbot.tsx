@@ -66,7 +66,9 @@ export const Fwenbot = ({
 
                 transition={{ ease: "linear", times: [0, 0.8, 1], duration: 1 }}
             >
-                <source src="/assets/Idle_1.webm" type="video/mp4" />
+                <source src="/assets/idle.webm" type="video/mp4" />
+                <source src="/assets/idle.mov" type="video/quicktime" />
+
             </motion.video>
             <motion.div className="font-bebas-neue flex gap-3 ">
                 <Letter custom={1} propY={scrollYProgress}>B</Letter>

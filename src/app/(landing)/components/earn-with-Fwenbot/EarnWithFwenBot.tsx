@@ -16,18 +16,25 @@ const EarnWithFwenBot = () => {
     return (
         <section className="h-[400vh] w-screen bg-[#BDE0FE]/50 " ref={ref}>
             <div className="mx-auto container flex h-screen flex-col-reverse space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0  sticky top-0 py-8 md:py-20">
-                <div className='w-full md:w-1/3 relative h-full'>
+                <div className='w-full md:w-1/3 md:min-w-[400px] relative h-full'>
                     <Description scrollYProgress={scrollYProgress} />
                     <JoinCommunity scrollYProgress={scrollYProgress} />
                 </div>
-                <motion.video
-                    autoPlay
-                    muted
-                    loop
-                    className="w-full"
-                >
-                    <source src="/assets/shiller_1.webm" type="video/mp4" />
-                </motion.video>
+                <div className='w-full'>
+
+                    <motion.video
+                        autoPlay
+                        muted
+                        loop
+                        // disablePictureInPicture
+                        preload='metadata'
+                        className="w-full h-full"
+                    >
+                        <source src="/assets/shiller.webm" type="video/mp4" />
+                        <source src="/assets/shiller.mov" type="video/quicktime" />
+                    </motion.video>
+                </div>
+                {/* <motion.img src="/assets/shiller.mov" className='w-full' /> */}
             </div>
         </section>
     )

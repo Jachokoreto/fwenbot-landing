@@ -85,7 +85,9 @@ const Intro = ({
                     className="mx-auto w-full md:w-auto md:max-w-[50%] h-1/3 md:h-full shrink-0 object-contain"
                     style={{ scale: imageScale, y: imageY }}
                 >
-                    <source src="/assets/Idle_1.webm" type="video/mp4" />
+                    <source src="/assets/idle.webm" type="video/mp4" />
+                    <source src="/assets/idle.mov" type="video/quicktime" />
+
                 </motion.video>
             </div>
         </motion.div>
