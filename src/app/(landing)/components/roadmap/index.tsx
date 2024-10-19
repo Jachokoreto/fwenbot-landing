@@ -13,7 +13,7 @@ const RoadMap = () => {
     const divRef = useRef<HTMLDivElement | null>(null)
     const { scrollYProgress } = useScroll({
         target: divRef,
-        offset: ['35% end', 'end 95%'],
+        offset: ['50% end', 'end 95%'],
     })
     const [selectedPhase, setSelectedPhase] = useState(0)
 
@@ -22,7 +22,7 @@ const RoadMap = () => {
             <div className="container relative flex h-fit w-full flex-col space-y-5 lg:h-[840px] lg:flex-row lg:space-x-14 lg:space-y-0 xl:h-[784px] xl:space-x-16">
                 <div className="flex w-full flex-col space-y-5 lg:w-[40%]">
                     <h1>Roadmap</h1>
-                    <p className="text-2xl leading-relaxed tracking-wide">
+                    <p className="text-2xl">
                         We&apos;re actively listening to our community and
                         working on innovative tools that empower our members
                         with a competitive edge. With that in mind, here&apos;s
@@ -41,6 +41,7 @@ const RoadMap = () => {
                         {phases.map((phase: any, index: number) => {
                             return (
                                 <Phase
+                                    key={index}
                                     phase={phase}
                                     scrollY={scrollYProgress}
                                     index={index}
@@ -51,10 +52,10 @@ const RoadMap = () => {
                         })}
                     </div>
                     <div
-                        className="absolute right-0 top-0 h-full w-2 rounded-full opacity-50"
+                        className="absolute right-0 top-0 -z-10 h-full w-2 rounded-full opacity-50"
                         style={{
                             background:
-                                'linear-gradient(180deg, rgba(255,172,129,1) 0%, rgba(255,146,139,1) 20%, rgba(254,195,166,1) 40%, rgba(239,233,174,1) 60%, rgba(189,224,254,1) 80%, rgba(205,234,192,1) 100%)',
+                                'linear-gradient(180deg, #FEF08A 0%, #CFF7D1 80%, #BDE0FE 100%)',
                         }}
                     />
                 </div>
