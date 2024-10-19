@@ -65,14 +65,14 @@ const DesktopView = () => {
                         At Fwen Bot, we believe in rewarding our users for their
                         active participation and contributions.
                     </p>
-                    <div className="flex w-full flex-col space-y-4">
+                    <div className="flex w-full flex-col space-y-5">
                         {earnWithFwenBot.map((earn: string, index: number) => {
                             return (
                                 <div
-                                    className="bg-accent flex flex-1 rounded-xl px-10 py-8"
+                                    className="flex flex-1 rounded-xl border-4 border-black bg-accent px-10 py-8 shadow-cartoon"
                                     key={index}
                                 >
-                                    <p className="text-lg">{earn}</p>
+                                    <p className="text-xl">{earn}</p>
                                 </div>
                             )
                         })}
@@ -106,7 +106,7 @@ const DesktopView = () => {
                 </motion.div>
 
                 <motion.div
-                    className="bg-primary absolute aspect-square w-[40%] rounded-3xl border-4 border-black"
+                    className="absolute aspect-square w-[40%] rounded-3xl border-4 border-black bg-primary"
                     ref={videoRef}
                     style={{
                         x: useTransform(
