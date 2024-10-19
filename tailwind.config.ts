@@ -13,6 +13,13 @@ const config: Config = {
                 'dm-sans': ['var(--font-dm-sans)'],
                 'bebas-neue': ['var(--font-bebas-neue)'],
             },
+            colors: {
+                primary: '#FFFEF2', // Main background color
+                secondary: '#F5F2E5', // Section background color
+                accent: '#FEF08A', // Main accent color
+                contrast: '#B2D0FF', // Cool contrast color
+                tertiary: '#CFF7D1', // Muted green
+            },
             backgroundImage: {
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
                 'gradient-conic':
@@ -43,9 +50,8 @@ const config: Config = {
                 },
             },
             boxShadow: {
-                'cartoon': '2px 2px 0px rgba(0,0,0,1)',
+                cartoon: '2px 2px 0px rgba(0,0,0,1)',
             },
-
         },
     },
     plugins: [],
