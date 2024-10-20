@@ -28,17 +28,22 @@ const Intro = ({
         const end = Math.min(start + 0.3, 1)
         return useTransform(scrollYProgress, [start, end], [500, 0])
     })
-    const exitY = useTransform(scrollYProgress, [0.8, 1], ["-50%", "-100%"])
+    // const exitY = useTransform(scrollYProgress, [0.95, 1], ["-50%", "-60%"])
+    const exitY = useTransform(scrollYProgress, [0.95, 1], ["-50%", "-60%"])
 
     const imageScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [0, 1, 1, 0])
     const imageY = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [-1000, 0, 0, 1000])
 
     return (
         <motion.div
-            className="sticky top-1/2 mx-auto w-[90vw] h-[90vh] md:h-fit overflow-hidden rounded-[40px] bg-yellow-400"
-            style={{ y: exitY }}
+            className="sticky top-1/2 mx-auto w-[90vw] h-[90vh] md:h-fit overflow-hidden rounded-[40px] bg-yellow-400 container"
+            style={{
+                // y: exitY,
+                y: "-50%",
+                scale: useTransform(scrollYProgress, [0.9, 1], [1, 0.5]),
+            }}
         >
-            <div className="mb-0 flex w-full h-full flex-col-reverse justify-center gap-2 md:gap-10 md:flex-row p-8 mx-auto container">
+            <div className="mb-0 flex w-full h-full flex-col-reverse justify-center gap-2 md:gap-10 md:flex-row p-8 mx-auto">
                 <div className="flex flex-col gap-5 w-full md:w-auto justify-center flex-1 md:max-w-[50%]">
                     {elements.map((element, index) => {
                         if (element.type === 'h1') {

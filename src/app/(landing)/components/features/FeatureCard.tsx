@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion, MotionStyle, MotionValue, useTransform } from 'framer-motion'
+import { AutoplayVideo } from '@/components/AutoplayVideo'
 
 interface FeatureCardProps {
     title: string
@@ -37,13 +38,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
                 <p className="mt-4 w-full text-lg opacity-80">{description}</p>
             </motion.div>
             <motion.div className="relative h-full w-full flex-1">
-                <Image
+                {/* <Image
                     // loading="lazy"
                     src={imageSrc}
                     alt={title}
                     className="aspect-[1.25] object-contain"
                     fill
-                />
+                /> */}
+                <AutoplayVideo>
+                    <source src={`${imageSrc}.webm`} type="video/mp4" />
+                    <source src={`${imageSrc}.mov`} type="video/quicktime" />
+                </AutoplayVideo>
             </motion.div>
         </motion.div>
     )

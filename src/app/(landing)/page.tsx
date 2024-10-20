@@ -25,8 +25,6 @@ export default function Home() {
         >
             <Header logoSrc="https://cdn.builder.io/api/v1/image/assets/TEMP/92be01a40e42b2667bf2ed01c42a67c00773eeedf8c9125b7bf8a471aaf3fd01?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171" />
             <HeroSection />
-            {/* <PartnersBanner />
-            <Stats /> */}
             <Section2 />
             <Section2b />
             <WhyChooseFwenbot />

@@ -9,20 +9,17 @@ const features = [
         title: "Shiller's Profit",
         description:
             'Transform your everyday Alpha Calls and trading tips with our innovative shilling feature — share valuable projects to the community and earn rewards from every successful trade.',
-        imageSrc:
-            'https://cdn.builder.io/api/v1/image/assets/TEMP/7570659f0e4f047c5bad7843ef2cb3d6ccb782483ff7d0a6db0abb698b067d56?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
-        backgroundColor: 'bg-yellow-400',
+        imageSrc: '/assets/shiller',
+        backgroundColor: 'bg-accent',
         isComingSoon: false,
     },
     {
         title: 'Simplistic Buy & Sell',
         description:
             "Trading is made simple with Fwen Bot's intuitive interface, allowing you to execute buy and sell orders directly within Discord.",
-        imageSrc:
-            'https://cdn.builder.io/api/v1/image/assets/TEMP/19479398f7f765c336391803d83468435e1b6424b1d7b666f4feef4945fb48c3?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
-        backgroundColor: 'bg-cyan-200',
+        imageSrc: '/assets/trading',
+        backgroundColor: 'bg-contrast',
         isComingSoon: false,
-        asset: "/asset/trading."
     },
     {
         title: 'Fwenbot Sniping',
@@ -30,7 +27,7 @@ const features = [
             "Trading is made simple with Fwen Bot's intuitive interface, allowing you to execute buy and sell orders directly within Discord.",
         imageSrc:
             'https://cdn.builder.io/api/v1/image/assets/TEMP/954577fb4a47d02e8bb068b5f27a042fd4d20f3b5d5b60670909bc3ad1d49783?placeholderIfAbsent=true&apiKey=7c31e4cd04e948ec8281a96957eed171',
-        backgroundColor: 'bg-yellow-200',
+        backgroundColor: 'bg-accent',
         isComingSoon: true,
     },
 
@@ -90,7 +87,7 @@ const Features: React.FC = () => {
                 >
                     {features.map((feature, index) => (
                         <FeatureCard key={index} {...feature} style={{
-                            y: useTransform(scrollYProgress, [0.1 + index * 0.1, 0.3 + index * 0.1], ["100vh", "0vh"]),
+                            y: useTransform(scrollYProgress, [0.1, 0.3 + index * 0.05], ["100vh", "0vh"]),
                         }} />
                     ))}
                 </motion.div>

@@ -18,14 +18,14 @@ export const Section2b = () => {
             ref={ref}
             className=" h-[400vh] md:h-[400vh] w-full relative "
 
-            style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#fff0", "#f5f2e5"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3], ["999px", "0px"]) }}
+            style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#f5f2e520", "#f5f2e5"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3], ["999px", "0px"]) }}
         >
             <div className='sticky top-0 left-0 h-screen max-sm:min-h-fit md:max-h-screen flex flex-col justify-center py-16'>
 
                 <motion.h1
                     className="font-normal container mx-auto mb-10"
                     style={{
-                        y: transform(scrollYProgress, [0, 0.4], ["100vh", "0vh"]),
+                        y: transform(scrollYProgress, [0, 0.2], ["100vh", "0vh"]),
                     }}
                 >
                     Capture the market with Fwenbot.
