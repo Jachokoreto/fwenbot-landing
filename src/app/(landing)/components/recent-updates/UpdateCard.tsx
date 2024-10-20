@@ -15,7 +15,7 @@ const UpdateCard: React.FC<UpdateCardProps> = ({
 }) => {
 
     return (
-        <article className={`flex flex-col px-6 py-6 my-auto bg-yellow-100 rounded-2xl border border-black border-solid w-full max-w-[300px] h-fit shadow-[2px_2px_0px_rgba(0,0,0,1)] max-md:px-5`}>
+        <article className={`flex flex-col px-6 py-6 my-auto bg-yellow-100 rounded-2xl border-2 border-black border-solid w-full max-w-[300px] h-fit shadow-cartoon max-md:px-5`}>
             <img
                 loading="lazy"
                 src={imageSrc}

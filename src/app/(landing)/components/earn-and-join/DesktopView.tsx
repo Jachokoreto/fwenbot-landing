@@ -20,13 +20,14 @@ const earnWithFwenBot = [
 const DesktopView = () => {
     const desktopRef = useRef<HTMLDivElement | null>(null)
     const videoRef = useRef<HTMLDivElement | null>(null)
+    const containerRef = useRef<HTMLDivElement | null>(null)
     const scrollYProgress = useSpringScroll({
         ref: desktopRef,
         offset: ['start start', 'end end'],
     })
 
-    const { width = 0, height = 0 } = useResizeObserver({
-        ref: desktopRef,
+    const { width = 0 } = useResizeObserver({
+        ref: containerRef,
         box: 'content-box',
     })
 
@@ -59,10 +60,10 @@ const DesktopView = () => {
     }, [width, videoRef])
 
     return (
-        <div className="container h-[200vh] w-full" ref={desktopRef}>
-            <div className="sticky top-0 flex h-[100vh] w-full items-center">
+        <motion.div className="h-[200vh] w-full bg-secondary " ref={desktopRef} style={{ borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ["999px", "0px", "0px", "999px"]) }}>
+            <div className="sticky top-0 flex h-screen items-center container mx-auto" ref={containerRef}>
                 <motion.div
-                    className="absolute flex w-[50%] flex-col space-y-5"
+                    className="absolute flex w-full max-w-[45%] flex-col space-y-5"
                     style={{ x: earnX, opacity: earnOpacity }}
                 >
                     <h1>Earning with FwenBot</h1>
@@ -85,7 +86,7 @@ const DesktopView = () => {
                 </motion.div>
 
                 <motion.div
-                    className="absolute flex w-[50%] flex-col"
+                    className="absolute flex w-full max-w-[45%] flex-col"
                     style={{ x: joinX, opacity: joinOpacity }}
                 >
                     <h1>Join the community</h1>
@@ -111,7 +112,7 @@ const DesktopView = () => {
                 </motion.div>
 
                 <motion.div
-                    className="absolute aspect-square w-[40%] rounded-3xl border-4 border-black bg-primary"
+                    className="absolute aspect-square w-[35%] rounded-3xl border-4 border-black bg-primary"
                     ref={videoRef}
                     style={{
                         x: useTransform(
@@ -148,7 +149,7 @@ const DesktopView = () => {
                     </motion.div>
                 </motion.div>
             </div>
-        </div>
+        </motion.div>
     )
 }
 

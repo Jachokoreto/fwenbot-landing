@@ -2,6 +2,8 @@ import React from 'react'
 // import classNames from 'classnames'
 import * as Accordion from '@radix-ui/react-accordion'
 import { FaChevronDown } from "react-icons/fa";
+import { motion } from 'framer-motion'
+import { AutoplayVideo } from '@/components/AutoplayVideo'
 
 
 const AccordionItem = React.forwardRef<any, any>(
@@ -22,13 +24,14 @@ const AccordionTrigger = React.forwardRef<any, any>(
     ({ children, className, ...props }, forwardedRef) => (
         <Accordion.Header className="flex">
             <Accordion.Trigger
-                className={`hadow-mauve6 hover:bg-mauve2 group flex py-6 font-normal  flex-1 items-center justify-between bg-yellow-200 px-6 leading-none text-3xl  outline-none cursor-pointer`}
+                className={`hadow-mauve6 hover:bg-mauve2 group flex py-6 font-normal flex-1 text-left justify-between bg-yellow-200 px-6 leading-none text-2xl md:text-3xl outline-none cursor-pointer gap-4`}
                 {...props}
                 ref={forwardedRef}
             >
                 {children}
                 <FaChevronDown
-                    className="text-violet10 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180"
+                    width={24}
+                    className="min-w-6 transition-transform duration-300 ease-[cubic-bezier(0.87,_0,_0.13,_1)] group-data-[state=open]:rotate-180"
                     aria-hidden
                 />
             </Accordion.Trigger>
@@ -80,8 +83,18 @@ const faqContents = [
 
 const FAQ = () => {
     return (
-        <section className="container my-20 mx-auto flex justify-center flex-col">
-            <h1 className='text-center mb-10'>F.A.Q</h1>
+        <section className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col w-full">
+
+            <div className='flex flex-row justify-between w-full items-end'>
+                <h1 className='text-center mb-10'>F.A.Q</h1>
+                <motion.div className='max-w-64'>
+
+                    <AutoplayVideo>
+                        <source src="/assets/idle.webm" type="video/mp4" />
+                        <source src="/assets/idle.mov" type="video/quicktime" />
+                    </AutoplayVideo>
+                </motion.div>
+            </div>
             <Accordion.Root
                 className="w-full space-y-6"
                 type="single"

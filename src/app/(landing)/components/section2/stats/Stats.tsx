@@ -59,7 +59,7 @@ const Stats = ({
     return (
         <motion.div
             ref={ref}
-            className="container mx-auto flex flex-col"
+            className="container mx-auto px-6 md:px-0 flex flex-col"
         >
             <div className="my-10 grid h-full w-full max-w-full-xl auto-rows-fr grid-cols-1 items-stretch justify-around gap-6 md:grid-cols-2 md:gap-8">
                 {statVals.map((stat, index) => (

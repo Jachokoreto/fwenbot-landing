@@ -57,7 +57,7 @@ const Phase = ({
                 style={{ background: phase.bg }}
             >
                 <p className="w-fit rounded-full bg-white/50 px-3 py-1 text-base sm:text-lg md:text-xl">
-                    Phase {index + 1}
+                    Phase {index + 1} - {phase.title}
                 </p>
                 <AnimatePresence>
                     {index === selectedPhase && (

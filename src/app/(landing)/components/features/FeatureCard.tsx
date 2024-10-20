@@ -22,7 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
     return (
         <motion.div
-            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:p-8 md:pl-5 relative  shadow-cartoon border-4 border-black`}
+            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:p-8 relative md:mt-10  shadow-cartoon border-4 border-black`}
             whileHover={{ scale: 1.05, zIndex: 10 }}
             style={
                 style
@@ -34,8 +34,8 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
                 </motion.div>
             )}
             <motion.div className="flex flex-col">
-                <h3 className="self-start text-2xl font-medium">{title}</h3>
-                <p className="mt-4 w-full text-lg opacity-80">{description}</p>
+                <h3 className="self-start text-3xl tracking-wide">{title}</h3>
+                <p className="mt-4 w-full text-lg opacity-70">{description}</p>
             </motion.div>
             <motion.div className="relative h-full w-full flex-1">
                 {/* <Image

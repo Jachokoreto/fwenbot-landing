@@ -20,8 +20,8 @@ const MobileView = () => {
     const seconVid = useTransform(scrollYProgress, [0.49, 0.8], [0, 1])
 
     return (
-        <div className="container flex h-full w-full flex-col items-center space-y-8 py-32">
-            <div className="flex w-full flex-col space-y-5">
+        <div className=" flex h-full w-full flex-col items-center space-y-8 py-32  bg-secondary ">
+            <div className="flex w-full flex-col space-y-5 container mx-auto">
                 <h1>Earning with FwenBot</h1>
                 <p className="text-2xl">
                     At Fwen Bot, we believe in rewarding our users for their
@@ -67,7 +67,7 @@ const MobileView = () => {
                 </motion.div>
             </div>
 
-            <div className="flex w-full flex-col">
+            <div className="flex w-full flex-col container mx-auto">
                 <h1>Join the community</h1>
                 <p className="mt-5 max-w-xl text-2xl">
                     Fwen Bot integration, with the thought of bringing traders

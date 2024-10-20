@@ -1,6 +1,9 @@
+import { title } from "process";
+
 export const phases = [
     {
         number: 1,
+        title: 'MVP Release',
         step: [0, 0.2],
         bg: '#FEF08A',
         items: [
@@ -11,6 +14,7 @@ export const phases = [
     },
     {
         number: 2,
+        title: 'Enhancing Trading Tools',
         step: [0.15, 0.35],
         bg: '#E5F4A5',
         items: [
@@ -20,6 +24,7 @@ export const phases = [
     },
     {
         number: 3,
+        title: 'Analytical Tools',
         step: [0.3, 0.45],
         bg: '#CFF7D1',
         items: [
@@ -29,6 +34,7 @@ export const phases = [
     },
     {
         number: 4,
+        title: 'Multichain Support',
         step: [0.4, 0.6],
         bg: '#A8E3E1',
         items: [
@@ -38,6 +44,7 @@ export const phases = [
     },
     {
         number: 5,
+        title: 'Tokenization',
         step: [0.55, 0.75],
         bg: '#BDE0FE',
 
@@ -48,6 +55,7 @@ export const phases = [
     },
     {
         number: 6,
+        title: 'The Future',
         step: [0.7, 0.9],
         bg: '#B2D0FF',
         items: [
