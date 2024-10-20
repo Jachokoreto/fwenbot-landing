@@ -50,7 +50,7 @@ const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
     //     <div className='w-full h-full bg-red-500'></div>
     // )
     return (
-        <div className="container mx-auto my-3 flex w-full flex-col h-full overflow-hidden" ref={ref}>
+        <div className="container mx-auto my-3 flex w-full flex-col h-full" ref={ref}>
             <motion.div className="lg:my-10 flex w-fit gap-10 " ref={childRef}>
                 {images.map((image, index) => (
                     <motion.div
@@ -59,7 +59,7 @@ const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
                         style={{
                             y: useTransform(
                                 scrollYProgress,
-                                [(index + 1) / 10, Math.min((index + 1) / 10 + 0.4, 1)],
+                                [(index + 1) / 10, Math.min((index + 1) / 10 + 0.2, 1)],
                                 ["100vh", "0vh"]
                             ),
                             x: useTransform(

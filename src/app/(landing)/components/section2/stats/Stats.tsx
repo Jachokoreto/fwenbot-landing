@@ -21,7 +21,7 @@ const StatItem = ({
 }) => {
     const y = useTransform(
         scrollYProgress,
-        [index / 10 + 0.3, Math.min((index) / 10 + 0.4 + 0.3, 0.75)],
+        [index / 10 + 0.2, Math.min((index) / 10 + 0.3 + 0.2, 0.75)],
         ["100vh", "0vh"]
     )
     // const opacity
