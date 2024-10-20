@@ -21,7 +21,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ text, href }) => {
             href={href}
         >
             <motion.div className="my-auto gap-2.5 self-stretch whitespace-nowrap bg-white/0 rounded-xl px-4 py-2"
-            whileHover={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
+                whileHover={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
             >
                 {text}
             </motion.div>
@@ -49,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ logoSrc }) => {
     // shadow-[4px_4px_0px_rgba(0,0,0,1)]
     return (
         <motion.header
-            className="fixed top-0 left-0 z-20 flex w-screen flex-wrap items-center justify-between gap-10 overflow-hidden border-b border-black bg-yellow-200 px-6 py-1 text-base font-medium"
+            className="fixed top-0 left-0 z-20 flex w-full flex-wrap items-center justify-between gap-10 overflow-hidden border-b border-black bg-yellow-200 px-6 py-1 text-base font-medium"
             initial={{ y: '-100%' }}
             variants={{
                 visible: { y: 0 },

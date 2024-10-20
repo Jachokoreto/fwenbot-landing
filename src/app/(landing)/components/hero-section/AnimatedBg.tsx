@@ -40,7 +40,7 @@ const AnimatedBg = () => {
         <div
             id="vanta"
             // ref={myRef}
-            className="absolute left-0 top-0 h-screen w-screen"
+            className="absolute left-0 top-0 h-screen w-full"
         ></div>
     )
 }

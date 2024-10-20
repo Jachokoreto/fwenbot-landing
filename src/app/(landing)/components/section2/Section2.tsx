@@ -23,7 +23,7 @@ const Section2 = () => {
     return (
         <motion.section
             ref={ref}
-            className="h-[300vh] md:h-[260vh] w-screen relative"
+            className="h-[300vh] md:h-[260vh] w-full relative"
         >
             <Intro scrollYProgress={scrollYProgress} />
         </motion.section>

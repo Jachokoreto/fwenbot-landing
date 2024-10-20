@@ -43,7 +43,7 @@ const MainContent: React.FC<MainContentProps> = ({
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
     return (
         <motion.div
-            className="z-10 mt-3 flex h-screen w-screen items-center justify-center gap-5 pb-16 max-md:flex-col"
+            className="z-10 mt-3 flex h-screen w-full items-center justify-center gap-5 pb-16 max-md:flex-col"
             ref={ref}
             whileInView={'scrollIn'}
             initial="initial"

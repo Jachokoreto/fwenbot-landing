@@ -18,7 +18,7 @@ const RoadMap = () => {
     const width = useTransform(containerYProgress, [0, 1], [2560, 8])
 
     return (
-        <section className="flex h-full min-h-screen w-screen justify-center">
+        <section className="flex h-full min-h-screen w-full justify-center">
             <div className="container h-full w-full" ref={containerRef}>
                 <div className="relative h-full w-full">
                     <div className="h-full w-full flex-col space-x-0 space-y-5 py-32 lg:flex lg:space-x-5 lg:space-y-0">

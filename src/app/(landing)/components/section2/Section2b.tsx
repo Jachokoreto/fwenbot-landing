@@ -16,7 +16,7 @@ export const Section2b = () => {
     return (
         <motion.section
             ref={ref}
-            className=" h-[400vh] md:h-[400vh] w-screen relative "
+            className=" h-[400vh] md:h-[400vh] w-full relative "
 
             style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#fff0", "#f5f2e5"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3], ["999px", "0px"]) }}
         >

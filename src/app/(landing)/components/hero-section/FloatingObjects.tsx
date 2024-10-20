@@ -82,42 +82,42 @@ export default function Mascots({
     speed = 1,
     count = 80,
     depth = 80,
-    easing = (x:number) => Math.sqrt(1 - Math.pow(x - 1, 2)),
+    easing = (x: number) => Math.sqrt(1 - Math.pow(x - 1, 2)),
 }) {
     return (
         // No need for antialias (faster), dpr clamps the resolution to 1.5 (also faster than full resolution)
         // As of three > r154 if postprocessing is used the canvas can not have tonemapping (which is what "flat" is, no tonemapping)
-        <div className='w-screen h-screen absolute top-0 left-0'>
+        <div className='w-full h-screen absolute top-0 left-0'>
 
-        <Canvas
-            flat
-            gl={{ antialias: false }}
-            dpr={[1, 1.5]}
-            camera={{
-                position: [0, 0, 10],
-                fov: 20,
-                near: 0.01,
-                far: depth + 15,
-            }}
-        >
-            {/* <color attach="background" args={['#ffbf40']} /> */}
-            {/* As of three > r153 lights work differently in threejs, to get similar results as before you have to add decay={0} */}
-            {/* <spotLight
+            <Canvas
+                flat
+                gl={{ antialias: false }}
+                dpr={[1, 1.5]}
+                camera={{
+                    position: [0, 0, 10],
+                    fov: 20,
+                    near: 0.01,
+                    far: depth + 15,
+                }}
+            >
+                {/* <color attach="background" args={['#ffbf40']} /> */}
+                {/* As of three > r153 lights work differently in threejs, to get similar results as before you have to add decay={0} */}
+                {/* <spotLight
                 position={[10, 20, 10]}
                 penumbra={1}
                 decay={0}
                 intensity={3}
                 color="orange"
             /> */}
-            {/* Using cubic easing here to spread out objects a little more interestingly, i wanted a sole big object up front ... */}
-            {Array.from(
-                { length: count },
-                (_, i) => <Mascot key={i} index={i} z={Math.round(easing(i / count) * depth)} speed={speed} /> /* prettier-ignore */
-            )}
-            <Environment preset="sunset" />
-            {/* Multisampling (MSAA) is WebGL2 antialeasing, we don't need it (faster)
+                {/* Using cubic easing here to spread out objects a little more interestingly, i wanted a sole big object up front ... */}
+                {Array.from(
+                    { length: count },
+                    (_, i) => <Mascot key={i} index={i} z={Math.round(easing(i / count) * depth)} speed={speed} /> /* prettier-ignore */
+                )}
+                <Environment preset="sunset" />
+                {/* Multisampling (MSAA) is WebGL2 antialeasing, we don't need it (faster)
             The normal-pass is not required either, saves a bit of performance */}
-            {/* <EffectComposer multisampling={0}>
+                {/* <EffectComposer multisampling={0}>
                 <DepthOfField
                     target={[0, 0, 60]}
                     focalLength={0.4}
@@ -126,8 +126,8 @@ export default function Mascots({
                 /> */}
                 {/* As of three > r154 tonemapping is not applied on rendertargets any longer, it requires a pass */}
                 {/* <ToneMapping /> */}
-            {/* </EffectComposer> */}
-        </Canvas>
+                {/* </EffectComposer> */}
+            </Canvas>
         </div>
     )
 }

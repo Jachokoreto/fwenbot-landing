@@ -61,7 +61,7 @@ const Stats = ({
             ref={ref}
             className="container mx-auto flex flex-col"
         >
-            <div className="my-10 grid h-full w-full max-w-screen-xl auto-rows-fr grid-cols-1 items-stretch justify-around gap-6 md:grid-cols-2 md:gap-8">
+            <div className="my-10 grid h-full w-full max-w-full-xl auto-rows-fr grid-cols-1 items-stretch justify-around gap-6 md:grid-cols-2 md:gap-8">
                 {statVals.map((stat, index) => (
                     <StatItem
                         key={index}

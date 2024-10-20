@@ -24,7 +24,7 @@ const EarnAndJoin = () => {
 
     return (
         <section
-            className="bg-secondary flex w-screen justify-center"
+            className="bg-secondary flex w-full justify-center"
             ref={ref}
         >
             {isMobile !== undefined &&
