@@ -7,7 +7,7 @@ import { FaChevronDown } from "react-icons/fa";
 const AccordionItem = React.forwardRef<any, any>(
     ({ children, className, value, ...props }, forwardedRef) => (
         <Accordion.Item
-            className={`mt-px overflow-hidden first:mt-0 focus-within:relative focus-within:z-10 rounded-3xl`}
+            className={`mt-px overflow-hidden first:mt-0 focus-within:relative focus-within:z-10 rounded-3xl border-2 border-black`}
             value={value}
             {...props}
             ref={forwardedRef}

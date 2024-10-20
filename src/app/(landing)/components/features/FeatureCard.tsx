@@ -21,11 +21,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
     return (
         <motion.div
-            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:p-8 md:pl-5 relative`}
+            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:p-8 md:pl-5 relative  shadow-cartoon border-4 border-black`}
             whileHover={{ scale: 1.05, zIndex: 10 }}
-            style={{
-                // scale: useTransform(scrollYProgress, [0.5, 0.6], [0.6, 1])
-            }}
+            style={
+                style
+            }
         >
             {isComingSoon && (
                 <motion.div className="absolute left-0 top-0 h-full w-full flex-1 backdrop-blur-lg z-10 flex justify-center items-center">

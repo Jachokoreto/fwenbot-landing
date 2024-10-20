@@ -60,7 +60,6 @@ const RecentUpdates: React.FC = () => {
                 Check out some of our major updates and collaboration posts on
                 Twitter.
             </p>
-            {/* <div className="mt-3.5 flex min-h-[405px] w-full items-center gap-6 self-center overflow-x-auto p-4 max-md:max-w-full"> */}
             <motion.div
                 ref={ref}
                 className="no-scrollbar relative z-10 mt-8 flex gap-12 p-2"

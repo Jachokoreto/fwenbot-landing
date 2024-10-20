@@ -38,37 +38,41 @@ const features = [
 
 const Features: React.FC = () => {
     const ref = React.useRef<HTMLDivElement>(null)
+    const containerRef = React.useRef<HTMLDivElement>(null)
     const childRef = React.useRef(null)
     const scrollYProgress = useSpringScroll({
         ref: ref,
         offset: ['start end', 'end end']
     })
-    const { width = 0, height = 0 } = useResizeObserver({
+    const { width = 0 } = useResizeObserver({
         ref: childRef,
         box: 'border-box',
+    })
+    const { width: containerW = 0 } = useResizeObserver({
+        ref: containerRef,
+        box: 'content-box',
     })
     const [offset, setOffset] = React.useState(0)
 
     useEffect(() => {
         if (ref.current) {
-            if (width < ref.current.clientWidth) {
+            if (width < containerW) {
                 setOffset(0)
             } else
-                setOffset(-(width - ref.current.clientWidth / 2))
+                setOffset(-(width - containerW))
         }
     }, [ref, width])
-
-
 
     return (
         <motion.section
             ref={ref}
             className="mb-20 mt-10 h-[200vh] py-10"
         >
-            <div className='sticky h-screen top-0 container mx-auto overflow-hidden flex flex-col'>
-
+            <div className='sticky h-screen top-0 container overflow-hidden flex flex-col mx-auto justify-center'
+                ref={containerRef}
+            >
                 <motion.h1
-                    className='mt-10 leading-relaxed'
+                    className='leading-relaxed'
 
                     style={{ y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]) }}
                 >

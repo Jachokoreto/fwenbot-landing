@@ -16,11 +16,11 @@ export const Section2b = () => {
     return (
         <motion.section
             ref={ref}
-            className=" h-[400vh] md:h-[400vh] w-screen relative bg-yellow-200"
+            className=" h-[400vh] md:h-[400vh] w-screen relative "
 
-            style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#fff0", "#fef08a"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3], ["999px", "0px"]) }}
+            style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#fff0", "#f5f2e5"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3], ["999px", "0px"]) }}
         >
-            <div className='sticky top-0 h-screen max-sm:min-h-fit md:max-h-screen flex flex-col justify-center py-16'>
+            <div className='sticky top-0 left-0 h-screen max-sm:min-h-fit md:max-h-screen flex flex-col justify-center py-16'>
 
                 <motion.h1
                     className="font-normal container mx-auto mb-10"
