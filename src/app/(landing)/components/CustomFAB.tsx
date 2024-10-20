@@ -6,8 +6,6 @@ import React from 'react'
 import { useScreen } from 'usehooks-ts';
 
 export const CustomFAB = () => {
-    const { scrollY } = useScroll();
-
     return (
         <Link href="https://discord.gg/rYzN89rG3G">
             <motion.button

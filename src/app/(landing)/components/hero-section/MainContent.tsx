@@ -1,18 +1,16 @@
 import React, { useRef } from 'react'
 import Button from '@/components/Button'
 import {
-    delay,
     motion,
-    stagger,
-    useMotionValueEvent,
     useScroll,
     useTransform,
+    useSpring
 } from 'framer-motion'
 import Link from 'next/link'
 import { Fwenbot } from './Fwenbot'
+import useSpringScroll from '@/hooks/useSpringScroll'
 
 interface MainContentProps {
-    logoSrc: string
     poweredByLogoSrc: string
 }
 
@@ -33,14 +31,14 @@ const items = {
 }
 
 const MainContent: React.FC<MainContentProps> = ({
-    logoSrc,
     poweredByLogoSrc,
 }) => {
     const ref = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: ref,
+    const scrollYProgress = useSpringScroll({
+        ref,
         offset: ['start start', 'center start'],
     })
+
 
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
     return (

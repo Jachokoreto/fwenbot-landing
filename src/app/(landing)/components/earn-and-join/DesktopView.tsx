@@ -1,9 +1,11 @@
 import { AutoplayVideo } from '@/components/AutoplayVideo'
 import Button from '@/components/Button'
+import useSpringScroll from '@/hooks/useSpringScroll'
 import {
     motion,
     useMotionValueEvent,
     useScroll,
+    useSpring,
     useTransform,
 } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
@@ -18,10 +20,11 @@ const earnWithFwenBot = [
 const DesktopView = () => {
     const desktopRef = useRef<HTMLDivElement | null>(null)
     const videoRef = useRef<HTMLDivElement | null>(null)
-    const { scrollYProgress } = useScroll({
-        target: desktopRef,
+    const scrollYProgress = useSpringScroll({
+        ref: desktopRef,
         offset: ['start start', 'end end'],
     })
+
     const { width = 0, height = 0 } = useResizeObserver({
         ref: desktopRef,
         box: 'content-box',

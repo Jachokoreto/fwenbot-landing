@@ -1,11 +1,12 @@
 import React from 'react'
 import { useScroll, motion, useTransform } from 'framer-motion'
+import useSpringScroll from '@/hooks/useSpringScroll'
 
 const WhyChooseFwenbot = () => {
     const ref = React.useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ['start end', 'end start'],
+    const scrollYProgress = useSpringScroll({
+        ref: ref,
+        offset: ['start end', 'end start']
     })
     return (
         <motion.section className="container my-20 overflow-hidden mx-auto"

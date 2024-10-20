@@ -4,11 +4,12 @@ import Intro from './intro'
 import PartnersBanner from './partners-banner'
 import Stats from './stats/Stats'
 import { transform } from '@/utils/transform'
+import useSpringScroll from '@/hooks/useSpringScroll'
 
 export const Section2b = () => {
     const ref = useRef<HTMLDivElement>(null)
-    const { scrollYProgress } = useScroll({
-        target: ref,
+    const scrollYProgress = useSpringScroll({
+        ref: ref,
         offset: ['start end', 'end end'],
     })
 

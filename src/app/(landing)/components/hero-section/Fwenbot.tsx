@@ -35,8 +35,6 @@ export const Fwenbot = ({
 }: {
     scrollYProgress: MotionValue<number>
 }) => {
-
-    // const y = useTransform(scrollYProgress, [0, 1], [0, -400])
     return (
         <motion.div
             className="relative flex select-none items-center"

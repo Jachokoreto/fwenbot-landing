@@ -2,6 +2,7 @@ import React, { use, useEffect } from 'react'
 import FeatureCard from './FeatureCard'
 import { cubicBezier, easeIn, easeInOut, motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useResizeObserver } from 'usehooks-ts'
+import useSpringScroll from '@/hooks/useSpringScroll'
 
 const features = [
     {
@@ -38,9 +39,9 @@ const features = [
 const Features: React.FC = () => {
     const ref = React.useRef<HTMLDivElement>(null)
     const childRef = React.useRef(null)
-    const { scrollYProgress } = useScroll({
-        target: ref,
-        offset: ['start end', 'end end'],
+    const scrollYProgress = useSpringScroll({
+        ref: ref,
+        offset: ['start end', 'end end']
     })
     const { width = 0, height = 0 } = useResizeObserver({
         ref: childRef,
@@ -64,7 +65,7 @@ const Features: React.FC = () => {
             ref={ref}
             className="mb-20 mt-10 h-[200vh] py-10"
         >
-            <div className='sticky h-screen top-0 container overflow-hidden flex flex-col'>
+            <div className='sticky h-screen top-0 container mx-auto overflow-hidden flex flex-col'>
 
                 <motion.h1
                     className='mt-10 leading-relaxed'
@@ -80,14 +81,9 @@ const Features: React.FC = () => {
                     ref={childRef}
                     style={{
                         y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]),
-                        x: useSpring(useTransform(scrollYProgress, [0.5, 0.8], [0, offset]), {
-                            stiffness: 100,
-                            damping: 30,
-                            restDelta: 0.001
-                        })
+                        x: useTransform(scrollYProgress, [0.5, 0.8], [0, offset]),
                     }}
                 >
-                    <div className='w-[50vw] md:w-[40vw] max-w-[400px]'></div>
                     {features.map((feature, index) => (
                         <FeatureCard key={index} {...feature} style={{
                             y: useTransform(scrollYProgress, [0.1 + index * 0.1, 0.3 + index * 0.1], ["100vh", "0vh"]),

@@ -1,6 +1,7 @@
 import { AutoplayVideo } from '@/components/AutoplayVideo'
 import Button from '@/components/Button'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import useSpringScroll from '@/hooks/useSpringScroll'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useRef } from 'react'
 
 const earnWithFwenBot = [
@@ -11,11 +12,10 @@ const earnWithFwenBot = [
 
 const MobileView = () => {
     const videoRef = useRef<HTMLDivElement | null>(null)
-    const { scrollYProgress } = useScroll({
-        target: videoRef,
+    const scrollYProgress = useSpringScroll({
+        ref: videoRef,
         offset: ['end end', 'start start'],
     })
-
     const firstVid = useTransform(scrollYProgress, [0.2, 0.51], [1, 0])
     const seconVid = useTransform(scrollYProgress, [0.49, 0.8], [0, 1])
 
