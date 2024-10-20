@@ -21,8 +21,8 @@ const StatItem = ({
 }) => {
     const y = useTransform(
         scrollYProgress,
-        [index / 10 + 0.3, Math.min(index / 10 + 0.4 + 0.3, 1)],
-        ['100vh', '0vh']
+        [index / 10 + 0.3, Math.min((index) / 10 + 0.4 + 0.3, 0.75)],
+        ["100vh", "0vh"]
     )
     // const opacity
 
@@ -34,7 +34,7 @@ const StatItem = ({
             whileHover={{ scale: 1.05 }}
         >
             <p className="w-full text-2xl md:text-4xl">{title}</p>
-            <h3 className="ml-auto text-[4rem] font-normal md:text-[6rem]">
+            <h3 className="ml-auto text-[4rem] font-normal md:text-[10vh]">
                 {value}
                 <span className="opacity-50">+</span>
             </h3>
@@ -55,18 +55,11 @@ const Stats = ({
     scrollYProgress: MotionValue<number>
 }) => {
     const ref = useRef(null)
-    const transform = (
-        mationValue: MotionValue<number>,
-        val1: any[],
-        val2: any[]
-    ) => {
-        return useTransform(mationValue, val1, val2)
-    }
 
     return (
         <motion.div
             ref={ref}
-            className="container mx-auto flex flex-1 flex-col"
+            className="container mx-auto flex flex-col"
         >
             <div className="my-10 grid h-full w-full max-w-screen-xl auto-rows-fr grid-cols-1 items-stretch justify-around gap-6 md:grid-cols-2 md:gap-8">
                 {statVals.map((stat, index) => (

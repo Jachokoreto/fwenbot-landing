@@ -1,4 +1,6 @@
+import { AutoplayVideo } from '@/components/AutoplayVideo'
 import Button from '@/components/Button'
+import useAutoPlayVideo from '@/hooks/useAutoPlayVideo'
 import {
     motion,
     useMotionValueEvent,
@@ -38,6 +40,7 @@ const DesktopView = () => {
     const earnOpacity = useTransform(scrollYProgress, [0.3, 0.45], [1, 0])
     const joinX = useTransform(scrollYProgress, [0.55, 0.67], ['60%', '100%'])
     const joinOpacity = useTransform(scrollYProgress, [0.55, 0.7], [0, 1])
+
 
     useEffect(() => {
         if (videoRef && videoRef.current && width) {
@@ -116,34 +119,32 @@ const DesktopView = () => {
                         ),
                     }}
                 >
-                    <motion.video
-                        autoPlay
-                        muted
-                        loop
-                        preload="metadata"
+                    <motion.div
                         className="absolute h-full w-full"
                         style={{ opacity: earnOpacity }}
                     >
-                        <source src="/assets/shiller.webm" type="video/mp4" />
-                        <source
-                            src="/assets/shiller.mov"
-                            type="video/quicktime"
-                        />
-                    </motion.video>
-                    <motion.video
-                        autoPlay
-                        muted
-                        loop
-                        preload="metadata"
+                        <AutoplayVideo>
+
+                            <source src="/assets/shiller.webm" type="video/mp4" />
+                            <source
+                                src="/assets/shiller.mov"
+                                type="video/quicktime"
+                            />
+                        </AutoplayVideo>
+
+                    </motion.div>
+                    <motion.div
                         className="absolute h-full w-full"
                         style={{ opacity: joinOpacity }}
                     >
-                        <source src="/assets/shiller.webm" type="video/mp4" />
-                        <source
-                            src="/assets/shiller.mov"
-                            type="video/quicktime"
-                        />
-                    </motion.video>
+                        <AutoplayVideo>
+                            <source src="/assets/shiller.webm" type="video/mp4" />
+                            <source
+                                src="/assets/shiller.mov"
+                                type="video/quicktime"
+                            />
+                        </AutoplayVideo>
+                    </motion.div>
                 </motion.div>
             </div>
         </div>

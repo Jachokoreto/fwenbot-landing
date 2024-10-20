@@ -25,28 +25,37 @@ interface PartnersBannerProps {
 const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
     const ref = React.useRef<HTMLDivElement>(null)
     const childRef = React.useRef(null)
-    const { width = 0, height = 0 } = useResizeObserver({
+    const { width = 0 } = useResizeObserver({
         ref: childRef,
         box: 'border-box',
+    })
+    const { width: containerW = 0 } = useResizeObserver({
+        ref: ref,
+        box: 'content-box',
     })
     const [offset, setOffset] = React.useState(0)
 
     React.useEffect(() => {
+
+        console.log({ width, containerW })
         if (ref.current) {
-            if (width < ref.current.clientWidth) {
+            if (width < containerW) {
                 setOffset(0)
             } else
-                setOffset(-(width - ref.current.clientWidth / 2))
+                setOffset(-(width - containerW))
         }
     }, [ref, width])
 
+    // return (
+    //     <div className='w-full h-full bg-red-500'></div>
+    // )
     return (
-        <div className="container mx-auto my-3 flex w-full flex-col min-h-[100px] overflow-hidden" ref={ref}>
+        <div className="container mx-auto my-3 flex w-full flex-col h-full overflow-hidden" ref={ref}>
             <motion.div className="lg:my-10 flex w-fit gap-10 " ref={childRef}>
                 {images.map((image, index) => (
                     <motion.div
                         key={index}
-                        className="relative aspect-[3.69] min-w-[50vw] md:min-w-[30vw] flex-1 object-contain"
+                        className="relative aspect-[3.69] min-w-[50vw] md:min-w-[25vw] flex-1 object-contain"
                         style={{
                             y: useTransform(
                                 scrollYProgress,

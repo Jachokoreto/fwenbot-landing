@@ -3,6 +3,7 @@ import AddBotButton from './AddBotButton'
 import HeroText from './HeroText'
 import Button from '@/components/Button'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
+import { AutoplayVideo } from '@/components/AutoplayVideo'
 
 // const DelayText = ({ children }: { children: React.ReactNode }) => {
 //     const ref = useRef<HTMLDivElement>(null)
@@ -78,17 +79,17 @@ const Intro = ({
                         return null
                     })}
                 </div>
-                <motion.video
-                    autoPlay
-                    muted
-                    loop
+                <motion.div
+
                     className="mx-auto w-full md:w-auto md:max-w-[50%] h-1/3 md:h-full shrink-0 object-contain"
                     style={{ scale: imageScale, y: imageY }}
                 >
-                    <source src="/assets/idle.webm" type="video/mp4" />
-                    <source src="/assets/idle.mov" type="video/quicktime" />
+                    <AutoplayVideo>
+                        <source src="/assets/idle.webm" type="video/mp4" />
+                        <source src="/assets/idle.mov" type="video/quicktime" />
+                    </AutoplayVideo>
 
-                </motion.video>
+                </motion.div>
             </div>
         </motion.div>
     )
