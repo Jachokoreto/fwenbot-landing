@@ -1,3 +1,4 @@
+import { AutoplayVideo } from '@/components/AutoplayVideo'
 import Button from '@/components/Button'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
@@ -44,28 +45,26 @@ const MobileView = () => {
                 className="bg-primary relative aspect-square w-full max-w-[400px] rounded-3xl border-4 border-black"
                 ref={videoRef}
             >
-                <motion.video
-                    autoPlay
-                    muted
-                    loop
-                    preload="metadata"
+                <motion.div
                     className="absolute h-full w-full"
                     style={{ opacity: firstVid }}
                 >
-                    <source src="/assets/shiller.webm" type="video/mp4" />
-                    <source src="/assets/shiller.mov" type="video/quicktime" />
-                </motion.video>
-                <motion.video
-                    autoPlay
-                    muted
-                    loop
-                    preload="metadata"
+                    <AutoplayVideo>
+                        <source src="/assets/shiller.webm" type="video/mp4" />
+                        <source src="/assets/shiller.mov" type="video/quicktime" />
+                    </AutoplayVideo>
+
+                </motion.div>
+                <motion.div
                     className="absolute h-full w-full"
                     style={{ opacity: seconVid }}
                 >
-                    <source src="/assets/shiller.webm" type="video/mp4" />
-                    <source src="/assets/shiller.mov" type="video/quicktime" />
-                </motion.video>
+                    <AutoplayVideo>
+                        <source src="/assets/shiller.webm" type="video/mp4" />
+                        <source src="/assets/shiller.mov" type="video/quicktime" />
+                    </AutoplayVideo>
+
+                </motion.div>
             </div>
 
             <div className="flex w-full flex-col">

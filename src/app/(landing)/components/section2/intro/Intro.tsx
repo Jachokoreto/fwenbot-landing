@@ -5,20 +5,6 @@ import Button from '@/components/Button'
 import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
 import { AutoplayVideo } from '@/components/AutoplayVideo'
 
-// const DelayText = ({ children }: { children: React.ReactNode }) => {
-//     const ref = useRef<HTMLDivElement>(null)
-//     const { scrollYProgress } = useScroll({
-//         target: ref,
-//         offset: ['start end', 'center center'],
-//     })
-//     const y = useTransform(scrollYProgress, [0, 1], ['100vh', '0vh'])
-//     return (
-//         <motion.div ref={ref} style={{ y }}>
-//             {children}
-//         </motion.div>
-//     )
-// }
-
 // Array of elements to animate
 const elements = [
     { type: 'h1', content: 'As the saying goes,' },
@@ -80,7 +66,6 @@ const Intro = ({
                     })}
                 </div>
                 <motion.div
-
                     className="mx-auto w-full md:w-auto md:max-w-[50%] h-1/3 md:h-full shrink-0 object-contain"
                     style={{ scale: imageScale, y: imageY }}
                 >

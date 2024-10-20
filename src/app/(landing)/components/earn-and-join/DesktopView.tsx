@@ -1,6 +1,5 @@
 import { AutoplayVideo } from '@/components/AutoplayVideo'
 import Button from '@/components/Button'
-import useAutoPlayVideo from '@/hooks/useAutoPlayVideo'
 import {
     motion,
     useMotionValueEvent,
@@ -124,15 +123,14 @@ const DesktopView = () => {
                         style={{ opacity: earnOpacity }}
                     >
                         <AutoplayVideo>
-
                             <source src="/assets/shiller.webm" type="video/mp4" />
                             <source
                                 src="/assets/shiller.mov"
                                 type="video/quicktime"
                             />
                         </AutoplayVideo>
-
                     </motion.div>
+
                     <motion.div
                         className="absolute h-full w-full"
                         style={{ opacity: joinOpacity }}

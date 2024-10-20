@@ -1,3 +1,4 @@
+import { AutoplayVideo } from '@/components/AutoplayVideo';
 import { motion, MotionValue, useTransform } from 'framer-motion'
 import React, { useEffect } from 'react'
 
@@ -48,10 +49,8 @@ export const Fwenbot = ({
                 <Letter custom={2} propY={scrollYProgress}>E</Letter>
                 <Letter custom={1} propY={scrollYProgress}>N</Letter>
             </motion.div>
-            <motion.video
-                autoPlay
-                muted
-                loop
+
+            <motion.div
                 className="w-[20vw] mb-3"
                 // variants={variant}
                 custom={1}
@@ -63,13 +62,14 @@ export const Fwenbot = ({
                     x: ["-30%", "-30%", 0],
                     opacity: [0, 1, 1]
                 }}
-
                 transition={{ ease: "linear", times: [0, 0.8, 1], duration: 1 }}
-            >
-                <source src="/assets/idle.webm" type="video/mp4" />
-                <source src="/assets/idle.mov" type="video/quicktime" />
 
-            </motion.video>
+            >
+                <AutoplayVideo>
+                    <source src="/assets/idle.webm" type="video/mp4" />
+                    <source src="/assets/idle.mov" type="video/quicktime" />
+                </AutoplayVideo>
+            </motion.div>
             <motion.div className="font-bebas-neue flex gap-3 ">
                 <Letter custom={1} propY={scrollYProgress}>B</Letter>
                 <Letter custom={2} propY={scrollYProgress}>O</Letter>
