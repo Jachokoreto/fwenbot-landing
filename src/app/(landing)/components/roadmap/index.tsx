@@ -31,7 +31,9 @@ const RoadMap = () => {
                     <div className="flex w-full flex-col space-y-5 lg:w-[40%]">
                         <motion.h1 style={{
                             x: useTransform(scrollYProgress, [0, 0.4], ["-100vw", "0vw"]),
-                        }}>Roadmap</motion.h1>
+                        }}
+                            id="roadmap"
+                        >Roadmap</motion.h1>
                         <motion.p className="text-2xl"
                             style={{
                                 x: useTransform(scrollYProgress, [0.1, 0.5], ["-100vw", "0vw"]),

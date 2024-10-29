@@ -25,7 +25,7 @@ const Intro = ({
     // Generate transforms programmatically for each element
     const transforms = elements.map((_, index) => {
         const start = (index + 1) / 10
-        const end = Math.min(start + 0.3, 1)
+        const end = Math.min(start + 0.2, 1)
         return useTransform(scrollYProgress, [start, end], [500, 0])
     })
     // const exitY = useTransform(scrollYProgress, [0.95, 1], ["-50%", "-60%"])
@@ -36,10 +36,10 @@ const Intro = ({
 
     return (
         <motion.div
-            className="sticky top-1/2 mx-auto w-[90vw] h-[90vh] md:h-fit overflow-hidden rounded-[40px] bg-yellow-400 container"
+            className="sticky top-1/2 mx-auto w-[90vw] h-[90vh] overflow-hidden rounded-[40px] bg-yellow-400 container"
             style={{
                 // y: exitY,
-                y: "-50%",
+                y: useTransform(scrollYProgress, [0, 0.2], ["-45%", "-50%"]),
                 scale: useTransform(scrollYProgress, [0.9, 1], [1, 0.5]),
             }}
         >
@@ -60,7 +60,7 @@ const Intro = ({
                             return (
                                 <motion.p
                                     key={index}
-                                    className="mt-4 md:mt-10 text-xl max-w-[480px] w-full"
+                                    className="mt-2 md:mt-5 text-xl max-w-[480px] w-full"
                                     style={{ y: transforms[index] }}
                                 >
                                     {element.content}

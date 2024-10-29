@@ -32,6 +32,7 @@ export const AutoplayVideo = ({ children }: { children: React.ReactNode }) => {
         <video
             muted
             loop
+            playsInline
             ref={(el) => {
                 if (el) {
                     el.play().catch(() => {

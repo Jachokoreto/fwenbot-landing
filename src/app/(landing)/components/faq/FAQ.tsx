@@ -2,8 +2,10 @@ import React from 'react'
 // import classNames from 'classnames'
 import * as Accordion from '@radix-ui/react-accordion'
 import { FaChevronDown } from "react-icons/fa";
-import { motion } from 'framer-motion'
+import { motion, useTransform } from 'framer-motion'
 import { AutoplayVideo } from '@/components/AutoplayVideo'
+import useSpringScroll from '@/hooks/useSpringScroll';
+
 
 
 const AccordionItem = React.forwardRef<any, any>(
@@ -82,13 +84,24 @@ const faqContents = [
 ]
 
 const FAQ = () => {
+    const containerRef = React.useRef<HTMLDivElement>(null)
+    const y = useSpringScroll({
+        ref: containerRef,
+        offset: ['start end', 'end end'],
+    })
     return (
-        <section className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col w-full">
-
+        <motion.div className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col w-full" ref={containerRef}>
             <div className='flex flex-row justify-between w-full items-end'>
-                <h1 className='text-center mb-10'>F.A.Q</h1>
-                <motion.div className='max-w-64'>
-
+                <motion.h1 className='text-center mb-10'
+                    style={{
+                        y: useTransform(y, [0, 0.3], [100, 0]),
+                    }}
+                >F.A.Q</motion.h1>
+                <motion.div className='max-w-64'
+                    style={{
+                        y: useTransform(y, [0, 0.3], [100, 0]),
+                    }}
+                >
                     <AutoplayVideo>
                         <source src="/assets/idle.webm" type="video/mp4" />
                         <source src="/assets/idle.mov" type="video/quicktime" />
@@ -102,13 +115,21 @@ const FAQ = () => {
                 collapsible
             >
                 {faqContents.map((faq, index) => (
-                    <AccordionItem key={index} value={`item-${index + 1}`}>
-                        <AccordionTrigger>{faq.question}</AccordionTrigger>
-                        <AccordionContent>{faq.answer}</AccordionContent>
-                    </AccordionItem>
+                    <motion.div
+                        style={{
+                            scale: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [0.9, 1]),
+                            y: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [100, 0]),
+                        }}
+                    >
+                        <AccordionItem key={index} value={`item-${index + 1}`}>
+                            <AccordionTrigger>{faq.question}</AccordionTrigger>
+                            <AccordionContent>{faq.answer}</AccordionContent>
+                        </AccordionItem>
+                    </motion.div>
                 ))}
             </Accordion.Root>
-        </section>
+        </motion.div>
+
     )
 }
 

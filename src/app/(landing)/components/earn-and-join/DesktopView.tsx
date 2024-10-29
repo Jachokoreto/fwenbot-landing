@@ -10,6 +10,7 @@ import {
 } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 import { useResizeObserver } from 'usehooks-ts'
+import Link from 'next/link'
 
 const earnWithFwenBot = [
     'Through our shilling and referral programs, you have the opportunities to earn while you trade and share your insights.',
@@ -100,15 +101,17 @@ const DesktopView = () => {
                         with good partnerships from different parts of the
                         crypto industry.
                     </p>
-                    <Button
-                        text="Join our Discord"
-                        primary
-                        className="mt-12 w-fit px-5"
-                        style={{
-                            cursor: isButtonDisabled ? 'default' : 'pointer',
-                        }}
-                        disabled={isButtonDisabled}
-                    />
+                    <Link href="https://discord.gg/rYzN89rG3G">
+                        <Button
+                            text="Join our Discord"
+                            primary
+                            className="mt-12 w-fit px-5"
+                            style={{
+                                cursor: isButtonDisabled ? 'default' : 'pointer',
+                            }}
+                            disabled={isButtonDisabled}
+                        />
+                    </Link>
                 </motion.div>
 
                 <motion.div

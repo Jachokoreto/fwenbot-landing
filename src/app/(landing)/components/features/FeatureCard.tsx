@@ -22,7 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
     return (
         <motion.div
-            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5 overflow-hidden rounded-2xl p-4 md:mr-2.5 md:p-8 relative md:mt-10  shadow-cartoon border-4 border-black`}
+            className={`${backgroundColor} flex max-h-[555px] h-[80vh] w-[90vw] md:w-[40vw] max-w-[400px]  flex-col gap-5  rounded-2xl overflow-hidden p-4 md:mr-2.5 md:p-8 relative shadow-cartoon border-4 border-black`}
             whileHover={{ scale: 1.05, zIndex: 10 }}
             style={
                 style

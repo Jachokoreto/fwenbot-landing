@@ -1,26 +1,32 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 interface UpdateCardProps {
     imageSrc: string
     date: string
     content: string
-    isLastCard: boolean
+    style: any
+    color: string
 }
+
+
 
 const UpdateCard: React.FC<UpdateCardProps> = ({
     imageSrc,
     date,
     content,
-    isLastCard,
+    style,
+    color
 }) => {
 
     return (
-        <article className={`flex flex-col px-6 py-6 my-auto bg-yellow-100 rounded-2xl border-2 border-black border-solid w-full max-w-[300px] h-fit shadow-cartoon max-md:px-5`}>
+        <motion.div className={`flex flex-col p-6 rounded-2xl border-2 border-black border-solid w-[400px] shadow-cartoon ${color}`} style={style}>
             <img
                 loading="lazy"
                 src={imageSrc}
                 alt=""
-                className={`bject-contain w-full aspect-square rounded-2xl select-none`}
+                draggable={false}
+                className={`object-cover w-full aspect-square rounded-2xl select-none`}
             />
             <time
                 dateTime={date}
@@ -29,7 +35,7 @@ const UpdateCard: React.FC<UpdateCardProps> = ({
                 {date}
             </time>
             <p className={`mt-3.5 text-xl text-black`}>{content}</p>
-        </article>
+        </motion.div>
     )
 }
 

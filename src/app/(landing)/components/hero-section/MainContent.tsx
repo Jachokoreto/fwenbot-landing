@@ -9,6 +9,7 @@ import {
 import Link from 'next/link'
 import { Fwenbot } from './Fwenbot'
 import useSpringScroll from '@/hooks/useSpringScroll'
+import { ScrollMoreHint } from './ScrollMoreHint'
 
 interface MainContentProps {
     poweredByLogoSrc: string
@@ -43,12 +44,13 @@ const MainContent: React.FC<MainContentProps> = ({
     const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
     return (
         <motion.div
-            className="z-10 mt-3 flex h-screen w-full items-center justify-center gap-5 pb-16 max-md:flex-col"
+            className="z-10 mt-3 flex h-screen w-full items-center justify-center gap-5 max-md:flex-col relative"
             ref={ref}
             whileInView={'scrollIn'}
             initial="initial"
             transition={{ delay: 2 }}
         >
+            <ScrollMoreHint />
             <motion.div
                 className="flex w-full flex-col items-center font-medium "
                 variants={{

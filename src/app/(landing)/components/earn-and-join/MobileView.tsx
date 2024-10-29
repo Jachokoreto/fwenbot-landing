@@ -3,6 +3,7 @@ import Button from '@/components/Button'
 import useSpringScroll from '@/hooks/useSpringScroll'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { useRef } from 'react'
+import Link from 'next/link'
 
 const earnWithFwenBot = [
     'Through our shilling and referral programs, you have the opportunities to earn while you trade and share your insights.',
@@ -79,11 +80,13 @@ const MobileView = () => {
                     with good partnerships from different parts of the crypto
                     industry.
                 </p>
-                <Button
-                    text="Join our Discord"
-                    primary
-                    className="mt-12 w-fit px-5"
-                />
+                <Link href="https://discord.gg/rYzN89rG3G">
+                    <Button
+                        text="Join our Discord"
+                        primary
+                        className="mt-12 w-fit px-5"
+                    />
+                </Link>
             </div>
         </div>
     )

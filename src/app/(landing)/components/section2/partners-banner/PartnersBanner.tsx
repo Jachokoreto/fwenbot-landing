@@ -51,7 +51,7 @@ const PartnersBanner: React.FC<PartnersBannerProps> = ({ scrollYProgress }) => {
     // )
     return (
         <div className="container mx-auto my-3 flex w-full flex-col" ref={ref}>
-            <motion.div className="lg:my-10 flex w-fit gap-10 " ref={childRef}>
+            <motion.div className="lg:my-5 flex w-fit gap-10 " ref={childRef}>
                 {images.map((image, index) => (
                     <motion.div
                         key={index}

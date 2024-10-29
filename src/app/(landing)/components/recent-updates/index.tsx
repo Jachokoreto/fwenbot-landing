@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UpdateCard from './UpdateCard'
 import { FaChevronLeft } from 'react-icons/fa'
 import { FaChevronRight } from 'react-icons/fa'
-import { motion } from 'framer-motion'
+import { motion, useTransform } from 'framer-motion'
 import { useResizeObserver } from 'usehooks-ts'
+import useSpringScroll from '@/hooks/useSpringScroll'
 
 interface Update {
     imageSrc: string
@@ -38,11 +39,14 @@ const updates: Update[] = [
     },
 ]
 
+const colors = ["bg-accent", "bg-contrast", "bg-tertiary"]
+
 const RecentUpdates: React.FC = () => {
     const ref = React.useRef<HTMLDivElement>(null)
     const boxRef = React.useRef<HTMLDivElement>(null)
+    const containerRef = React.useRef<HTMLDivElement>(null)
 
-    const { width = 0, height = 0 } = useResizeObserver({
+    const { width = 0 } = useResizeObserver({
         ref,
         box: 'border-box',
     })
@@ -51,45 +55,68 @@ const RecentUpdates: React.FC = () => {
         ref: boxRef,
         box: 'content-box',
     })
+
+    const y = useSpringScroll({
+        ref: containerRef,
+        offset: ['start end', 'end end'],
+    })
+
+    useEffect(() => {
+        console.log("b4", width, boxWidth)
+        console.log("after", width - boxWidth)
+    }, [width, boxWidth])
     return (
-        <section className="container h-screen mx-auto relative flex flex-col overflow-hidden justify-center" ref={boxRef}>
-            <h1>
-                Recent Updates
-            </h1>
-            <p className='mt-4'>
-                Check out some of our major updates and collaboration posts on
-                Twitter.
-            </p>
-            <motion.div
-                ref={ref}
-                className="no-scrollbar relative z-10 mt-8 flex gap-12 p-2"
-                drag={'x'}
-                dragConstraints={{
-                    left: -(width - (boxWidth)),
-                    right: width - (boxWidth),
-                }}
-            >
-                {updates.map((update, index) => (
-                    <UpdateCard
-                        key={index}
-                        imageSrc={update.imageSrc}
-                        date={update.date}
-                        content={update.content}
-                        isLastCard={false}
-                    />
-                ))
-                }
-            </motion.div>
-            {/* </div> */}
-            <div className="mx-auto mt-8 flex gap-10">
-                <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
-                    <FaChevronLeft />
-                </motion.button>
-                <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
-                    <FaChevronRight />
-                </motion.button>
-            </div>
-        </section>
+        <motion.div ref={containerRef} className='h-[200vh]'>
+            <section className="container h-screen mx-auto flex flex-col overflow-hidden justify-center sticky top-0" ref={boxRef}>
+                <motion.h1 style={{
+                    y: useTransform(y, [0, 0.3], [200, 0]),
+                }}>
+                    Recent Updates
+                </motion.h1>
+                <motion.p className='mt-4' style={{
+                    y: useTransform(y, [0.1, 0.3], [200, 0]),
+                }}>
+                    Check out some of our major updates and collaboration posts on
+                    Twitter.
+                </motion.p>
+                <motion.div
+                    ref={ref}
+                    className="no-scrollbar relative z-10 mt-8 flex gap-6 p-2 w-fit cursor-grab"
+                    drag={'x'}
+                    dragConstraints={{
+                        left: -(width - (boxWidth)),
+                        right: 0,
+                    }}
+                >
+                    {updates.map((update, index) => (
+                        <UpdateCard
+                            key={index}
+                            imageSrc={update.imageSrc}
+                            date={update.date}
+                            content={update.content}
+                            style={{
+                                y: useTransform(y, [(3 + index) / 10, 0.7], [200, 0]),
+                            }}
+                            color={colors[index % 3]}
+
+                        />
+                    ))
+                    }
+                </motion.div>
+                {/* </div> */}
+                <motion.div className="mx-auto mt-8 flex gap-10" style={{
+                    opacity: useTransform(y, [0.7, 0.75], [0, 1]),
+                }}>
+                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
+                        <FaChevronLeft />
+                    </motion.button>
+                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
+                        <FaChevronRight />
+                    </motion.button>
+                </motion.div>
+            </section>
+        </motion.div>
+
     )
 }
 
