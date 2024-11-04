@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import UpdateCard from './UpdateCard'
 import { FaChevronLeft } from 'react-icons/fa'
 import { FaChevronRight } from 'react-icons/fa'
-import { motion, useTransform } from 'framer-motion'
+import { motion, useTransform, useMotionValue, useSpring } from 'framer-motion'
 import { useResizeObserver } from 'usehooks-ts'
 import useSpringScroll from '@/hooks/useSpringScroll'
 
@@ -45,12 +45,12 @@ const RecentUpdates: React.FC = () => {
     const ref = React.useRef<HTMLDivElement>(null)
     const boxRef = React.useRef<HTMLDivElement>(null)
     const containerRef = React.useRef<HTMLDivElement>(null)
+    const x = useSpring(0)
 
     const { width = 0 } = useResizeObserver({
         ref,
         box: 'border-box',
     })
-
     const { width: boxWidth = 0 } = useResizeObserver({
         ref: boxRef,
         box: 'content-box',
@@ -61,16 +61,28 @@ const RecentUpdates: React.FC = () => {
         offset: ['start end', 'end end'],
     })
 
+    const handleButtonClick = (dir: "left" | "right") => {
+        const currX = x.get();
+        if (dir === "left" && currX <= 0)
+            x.set(x.get() + 100)
+        else if (dir === "right" && currX > -(width - boxWidth))
+            x.set(x.get() - 100)
+        console.log({ x: x.get() })
+    }
+
     useEffect(() => {
-        console.log("b4", width, boxWidth)
-        console.log("after", width - boxWidth)
+        console.log({ width, boxWidth, x: x.get() })
     }, [width, boxWidth])
+
+
     return (
         <motion.div ref={containerRef} className='h-[200vh]'>
             <section className="container h-screen mx-auto flex flex-col overflow-hidden justify-center sticky top-0" ref={boxRef}>
-                <motion.h1 style={{
-                    y: useTransform(y, [0, 0.3], [200, 0]),
-                }}>
+                <motion.h1
+                    id="recent-updates"
+                    style={{
+                        y: useTransform(y, [0, 0.3], [200, 0]),
+                    }}>
                     Recent Updates
                 </motion.h1>
                 <motion.p className='mt-4' style={{
@@ -83,6 +95,7 @@ const RecentUpdates: React.FC = () => {
                     ref={ref}
                     className="no-scrollbar relative z-10 mt-8 flex gap-6 p-2 w-fit cursor-grab"
                     drag={'x'}
+                    style={{ x }}
                     dragConstraints={{
                         left: -(width - (boxWidth)),
                         right: 0,
@@ -107,10 +120,15 @@ const RecentUpdates: React.FC = () => {
                 <motion.div className="mx-auto mt-8 flex gap-10" style={{
                     opacity: useTransform(y, [0.7, 0.75], [0, 1]),
                 }}>
-                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
+                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center"
+                        onClick={() => handleButtonClick('left')}
+                    >
                         <FaChevronLeft />
                     </motion.button>
-                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center" >
+                    <motion.button className="size-16 rounded-full bg-yellow-400 text-xl font-bold flex justify-center items-center"
+                        onClick={() => handleButtonClick('right')}
+
+                    >
                         <FaChevronRight />
                     </motion.button>
                 </motion.div>

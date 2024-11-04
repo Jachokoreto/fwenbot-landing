@@ -90,44 +90,48 @@ const FAQ = () => {
         offset: ['start end', 'end end'],
     })
     return (
-        <motion.div className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col w-full" ref={containerRef}>
-            <div className='flex flex-row justify-between w-full items-end'>
-                <motion.h1 className='text-center mb-10'
+        <motion.div className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col md:flex-row md:gap-6 w-full" ref={containerRef}>
+            <motion.div className='max-w-64'
+                style={{
+                    y: useTransform(y, [0, 0.3], [100, 0]),
+                }}
+            >
+                {/* <AutoplayVideo>
+                        <source src="/assets/idle.webm" type="video/mp4" />
+                        <source src="/assets/idle.mov" type="video/quicktime" />
+                    </AutoplayVideo> */}
+                <img src="assets/FwenBot_FAQ.gif" alt="friends" />
+
+            </motion.div>
+            <div className='flex flex-col w-full justify-center'>
+                <motion.h1 className='text-center mb-4'
                     style={{
                         y: useTransform(y, [0, 0.3], [100, 0]),
                     }}
                 >F.A.Q</motion.h1>
-                <motion.div className='max-w-64'
-                    style={{
-                        y: useTransform(y, [0, 0.3], [100, 0]),
-                    }}
+
+                <Accordion.Root
+                    className="w-full space-y-6"
+                    type="single"
+                    defaultValue="item-1"
+                    collapsible
                 >
-                    <AutoplayVideo>
-                        <source src="/assets/idle.webm" type="video/mp4" />
-                        <source src="/assets/idle.mov" type="video/quicktime" />
-                    </AutoplayVideo>
-                </motion.div>
+                    {faqContents.map((faq, index) => (
+                        <motion.div
+                            style={{
+                                scale: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [0.9, 1]),
+                                y: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [100, 0]),
+                            }}
+                        >
+                            <AccordionItem key={index} value={`item-${index + 1}`}>
+                                <AccordionTrigger>{faq.question}</AccordionTrigger>
+                                <AccordionContent>{faq.answer}</AccordionContent>
+                            </AccordionItem>
+                        </motion.div>
+                    ))}
+                </Accordion.Root>
             </div>
-            <Accordion.Root
-                className="w-full space-y-6"
-                type="single"
-                defaultValue="item-1"
-                collapsible
-            >
-                {faqContents.map((faq, index) => (
-                    <motion.div
-                        style={{
-                            scale: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [0.9, 1]),
-                            y: useTransform(y, [(3 + index) / 10, (3 + index + 2) / 10], [100, 0]),
-                        }}
-                    >
-                        <AccordionItem key={index} value={`item-${index + 1}`}>
-                            <AccordionTrigger>{faq.question}</AccordionTrigger>
-                            <AccordionContent>{faq.answer}</AccordionContent>
-                        </AccordionItem>
-                    </motion.div>
-                ))}
-            </Accordion.Root>
+
         </motion.div>
 
     )

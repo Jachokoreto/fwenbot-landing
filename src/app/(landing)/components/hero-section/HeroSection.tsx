@@ -1,6 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
-import Header from './Header'
 import MainContent from './MainContent'
 
 const HeroSection = () => {

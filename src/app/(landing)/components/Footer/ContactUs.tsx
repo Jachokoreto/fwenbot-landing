@@ -38,13 +38,13 @@ const ContactUs: React.FC = () => {
                 ))} */}
 
                 <Link href={""}>
-                    <FaInstagram className="mr-4 aspect-square size-[40px] object-contain" />
+                    <FaInstagram className="mr-4 aspect-square size-[40px] object-contain hover:scale-110 transition-all" />
                 </Link>
                 <Link href={""}>
-                    <FaSquareXTwitter className="mr-4 aspect-square size-[40px] object-contain" />
+                    <FaSquareXTwitter className="mr-4 aspect-square size-[40px] object-contain hover:scale-110 transition-all" />
                 </Link>
                 <Link href={"https://discord.gg/rYzN89rG3G"}>
-                    <FaDiscord className="mr-4 aspect-square size-[40px] object-contain" />
+                    <FaDiscord className="mr-4 aspect-square size-[40px] object-contain hover:scale-110 transition-all" />
                 </Link>
             </div>
         </section>

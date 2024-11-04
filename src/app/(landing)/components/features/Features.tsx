@@ -3,6 +3,7 @@ import FeatureCard from './FeatureCard'
 import { cubicBezier, easeIn, easeInOut, motion, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useResizeObserver } from 'usehooks-ts'
 import useSpringScroll from '@/hooks/useSpringScroll'
+import WhyChooseFwenbot from '../why-choose-fwenbot'
 
 const features = [
     {
@@ -63,18 +64,20 @@ const Features: React.FC = () => {
     return (
         <motion.section
             ref={ref}
-            className="mb-20 mt-10 h-[200vh] py-10"
+            className="mb-20 mt-10 h-[200vh]"
         >
-            <div className='sticky h-screen top-0 container overflow-hidden flex flex-col mx-auto justify-center'
+            <div className='sticky h-screen min-h-fit py-10 top-0 container overflow-hidden flex flex-col mx-auto justify-center'
                 ref={containerRef}
             >
-                <motion.h1
+                {/* <motion.h1
                     className='leading-relaxed'
 
                     style={{ y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]) }}
                 >
                     Effortless Trading, <br />Limitless Potential
-                </motion.h1>
+                </motion.h1> */}
+                <WhyChooseFwenbot />
+
                 {/* <motion.p>
                     Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
                 </motion.p> */}

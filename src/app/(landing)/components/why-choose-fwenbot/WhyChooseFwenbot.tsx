@@ -9,14 +9,14 @@ const WhyChooseFwenbot = () => {
         offset: ['start end', 'end start']
     })
     return (
-        <motion.section className="container my-20 overflow-hidden mx-auto"
+        <motion.section className="mx-auto"
             style={{
                 // y: useTransform(scrollYProgress, [0, 0.3], ["50vh", "0vh"]),
                 opacity: useTransform(scrollYProgress, [0, 0.6], [0, 1])
             }}
             ref={ref}
         >
-            <h1 className="ml-2.5 self-start max-md:max-w-full max-md:text-4xl max-md:leading-10">
+            <h1>
                 {/* Features to<br /> support your trading */}
                 Why choose FwenBot?
             </h1>

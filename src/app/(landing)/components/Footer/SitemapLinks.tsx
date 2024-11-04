@@ -16,9 +16,9 @@ const SitemapLinks: React.FC = () => {
     return (
         <nav className="flex w-[200px] flex-col">
             <h2 className="text-2xl font-medium opacity-60">Sitemap</h2>
-            <ul className="flex min-h-[215px] w-[200px] max-w-full flex-col justify-between text-xl text-black">
+            <ul className="mt-2 flex min-h-[215px] w-[200px] max-w-full flex-col justify-between  text-black">
                 {sitemapLinks.map((link, index) => (
-                    <li key={index}>{link}</li>
+                    <li className='cursor-pointer hover:font-semibold' key={index}>{link}</li>
                 ))}
             </ul>
         </nav>

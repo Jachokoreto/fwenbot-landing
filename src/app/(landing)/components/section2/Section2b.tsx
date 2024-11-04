@@ -1,6 +1,6 @@
 import { useScroll, motion, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
-import Intro from './intro'
+import Intro from './about'
 import PartnersBanner from './partners-banner'
 import Stats from './stats/Stats'
 import { transform } from '@/utils/transform'

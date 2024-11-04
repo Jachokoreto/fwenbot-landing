@@ -129,26 +129,30 @@ const DesktopView = () => {
                         className="absolute h-full w-full"
                         style={{ opacity: earnOpacity }}
                     >
-                        <AutoplayVideo>
+                        {/* <AutoplayVideo>
                             <source src="/assets/shiller.webm" type="video/mp4" />
                             <source
                                 src="/assets/shiller.mov"
                                 type="video/quicktime"
                             />
-                        </AutoplayVideo>
+                        </AutoplayVideo> */}
+                        <img src="/assets/FwenBot-earning-with-us.gif" alt="friends" />
+
                     </motion.div>
 
                     <motion.div
                         className="absolute h-full w-full"
                         style={{ opacity: joinOpacity }}
                     >
-                        <AutoplayVideo>
+                        {/* <AutoplayVideo>
                             <source src="/assets/shiller.webm" type="video/mp4" />
                             <source
                                 src="/assets/shiller.mov"
                                 type="video/quicktime"
                             />
-                        </AutoplayVideo>
+                        </AutoplayVideo> */}
+                        <img src="/assets/FwenBot-join-us.gif" alt="friends" />
+
                     </motion.div>
                 </motion.div>
             </div>

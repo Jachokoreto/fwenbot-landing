@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import HeroSection from './components/hero-section'
 import PartnersBanner from './components/section2/partners-banner'
-import Intro from './components/section2/intro'
+import Intro from './components/section2/about'
 import Features from './components/features'
 import Roadmap from './components/roadmap'
 import RecentUpdates from './components/recent-updates'
@@ -27,7 +27,7 @@ export default function Home() {
             <HeroSection />
             <Section2 />
             <Section2b />
-            <WhyChooseFwenbot />
+            {/* <WhyChooseFwenbot /> */}
             <Features />
             <EarnAndJoin />
             <Roadmap />
