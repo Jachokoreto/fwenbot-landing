@@ -91,7 +91,7 @@ const FAQ = () => {
     })
     return (
         <motion.div className="container h-screen min-h-fit mx-auto flex justify-center items-center flex-col md:flex-row md:gap-6 w-full" ref={containerRef}>
-            <motion.div className='max-w-64'
+            <motion.div className='flex-1'
                 style={{
                     y: useTransform(y, [0, 0.3], [100, 0]),
                 }}
@@ -103,7 +103,7 @@ const FAQ = () => {
                 <img src="assets/FwenBot_FAQ.gif" alt="friends" />
 
             </motion.div>
-            <div className='flex flex-col w-full justify-center'>
+            <div className='flex flex-col justify-center w-full md:w-1/2'>
                 <motion.h1 className='text-center mb-4'
                     style={{
                         y: useTransform(y, [0, 0.3], [100, 0]),
