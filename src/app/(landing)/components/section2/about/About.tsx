@@ -1,95 +1,95 @@
-import React, { useRef } from 'react'
-import AddBotButton from './AddBotButton'
-import HeroText from './HeroText'
-import Button from '@/components/Button'
-import { motion, MotionValue, useScroll, useTransform } from 'framer-motion'
-import { AutoplayVideo } from '@/components/AutoplayVideo'
+import type { MotionValue } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 
 // Array of elements to animate
 const elements = [
-    { type: 'h1', content: 'As the saying goes,' },
-    { type: 'h1', content: '"A friend in need' },
-    { type: 'h1', content: 'is a friend indeed".' },
+    { type: 'svg', content: '/assets/As-the-saying-goes.svg' },
+    { type: 'svg', content: '/assets/A-friend-in-need.svg' },
+    { type: 'svg', content: '/assets/is-a-friend-indeed.svg' },
     {
         type: 'p',
         content:
             'Designed as a Discord Trading Bot, Fwen Bot provides the best support you need, whenever you need it.',
     },
-]
+];
 
 const About = ({
     scrollYProgress,
 }: {
-    scrollYProgress: MotionValue<number>
+    scrollYProgress: MotionValue<number>;
 }) => {
     // Generate transforms programmatically for each element
     const transforms = elements.map((_, index) => {
-        const start = (index + 1) / 10
-        const end = Math.min(start + 0.2, 1)
-        return useTransform(scrollYProgress, [start, end], [500, 0])
-    })
-    // const exitY = useTransform(scrollYProgress, [0.95, 1], ["-50%", "-60%"])
-    const exitY = useTransform(scrollYProgress, [0.95, 1], ["-50%", "-60%"])
+        const start = (index + 1) / 10;
+        const end = Math.min(start + 0.2, 1);
+        return useTransform(scrollYProgress, [start, end], [500, 0]);
+    });
 
-    const imageScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [0, 1, 1, 0])
-    const imageY = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [-1000, 0, 0, 1000])
+    const imageScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [0, 1, 1, 0]);
+    const imageY = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [-1000, 0, 0, 1000]);
+
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const resizeFont = () => {
+            if (!containerRef.current) {
+                return;
+            }
+        };
+
+        resizeFont();
+        window.addEventListener('resize', resizeFont);
+
+        return () => {
+            window.removeEventListener('resize', resizeFont);
+        };
+    }, [containerRef]);
 
     return (
         <motion.div
-            className="sticky top-1/2 mx-auto w-[90vw] h-[90vh] overflow-hidden rounded-[40px] bg-yellow-400 container"
+            className="container sticky top-1/2 mx-auto h-[90vh] min-h-fit w-[90vw] overflow-hidden rounded-[40px] bg-yellow-400"
             style={{
-                // y: exitY,
-                y: useTransform(scrollYProgress, [0, 0.2], ["-45%", "-50%"]),
+                y: useTransform(scrollYProgress, [0, 0.2], ['-45%', '-50%']),
                 scale: useTransform(scrollYProgress, [0.9, 1], [1, 0.5]),
             }}
             id="about"
-
         >
-            <div className="mb-0 flex w-full h-full flex-col-reverse justify-center gap-2 md:gap-10 md:flex-row p-8 mx-auto">
-                <div className="flex flex-col gap-5 w-full md:w-auto justify-center flex-1 md:max-w-[50%]">
+            <div className="mx-auto mb-0 flex size-full flex-col-reverse justify-center gap-2 p-8 md:flex-row md:gap-10">
+                <div className="flex w-full flex-1 flex-col justify-center gap-5 md:w-auto md:max-w-[50%] overflow-hidden" ref={containerRef}>
                     {elements.map((element, index) => {
-                        if (element.type === 'h1') {
+                        if (element.type === 'svg') {
                             return (
-                                <motion.h1
-                                    // id="about"
+                                <motion.div
                                     key={index}
-                                    className="font-normal"
                                     style={{ y: transforms[index] }}
                                 >
-                                    {element.content}
-                                </motion.h1>
-                            )
+                                    <img src={element.content} alt={`SVG ${index + 1}`} width="100%" height="auto" />
+                                </motion.div>
+                            );
                         } else if (element.type === 'p') {
                             return (
                                 <motion.p
                                     key={index}
-                                    className="mt-2 md:mt-5 text-xl max-w-[480px] w-full"
+                                    className="mt-2 w-full max-w-[480px] text-xl md:mt-5"
                                     style={{ y: transforms[index] }}
-                                // id={index === elements.length - 1 ? 'about' : ''}
                                 >
                                     {element.content}
                                 </motion.p>
-                            )
+                            );
                         }
-                        return null
+                        return null;
                     })}
                 </div>
                 <motion.div
-                    className="mx-auto w-full md:w-auto md:max-w-[50%] h-1/3 md:h-full shrink-0 object-contain flex justify-center items-center"
+                    className="mx-auto flex h-1/3 w-full shrink-0 items-center justify-center object-contain md:h-full md:w-auto md:max-w-[50%]"
                     style={{ scale: imageScale, y: imageY }}
-                // id="about"
-
                 >
-                    {/* <AutoplayVideo>
-                        <source src="/assets/idle.webm" type="vid" />
-                        <source src="/assets/idle.mov" type="video/quicktime" />
-                    </AutoplayVideo> */}
-                    <img src="/assets/FwenBot-about-us.gif" alt="friends" />
-
+                    <img src="/assets/FwenBot-about-us.gif" alt="friends" className='h-full' />
                 </motion.div>
             </div>
         </motion.div>
-    )
-}
+    );
+};
 
-export default About
+export default About;

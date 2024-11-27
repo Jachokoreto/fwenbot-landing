@@ -30,6 +30,7 @@ export const AutoplayVideo = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <video
+            className='size-full object-contain'
             muted
             loop
             playsInline

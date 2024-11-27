@@ -28,13 +28,13 @@ const StatItem = ({
 
     return (
         <motion.div
-            className="flex h-full flex-col justify-between rounded-[24px] border-4 border-black bg-[#fef3a1] p-6 shadow-cartoon"
+            className="flex h-full flex-col justify-between rounded-[24px] border-4 border-black bg-[#fef3a1] px-4 py-3 md:p-6 shadow-cartoon"
             style={{ y }}
             // initial={{ y: 0 }}
             whileHover={{ scale: 1.05 }}
         >
-            <p className="w-full text-2xl md:text-4xl">{title}</p>
-            <h3 className="ml-auto text-[4rem] font-normal md:text-[6vh]">
+            <p className="w-full text-xl md:text-4xl">{title}</p>
+            <h3 className="ml-auto text-[4vh] font-normal md:text-[6vh]">
                 {value}
                 <span className="opacity-50">+</span>
             </h3>

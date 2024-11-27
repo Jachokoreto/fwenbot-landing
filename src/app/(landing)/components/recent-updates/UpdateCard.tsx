@@ -1,32 +1,29 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
+import React from 'react';
 
-interface UpdateCardProps {
-    imageSrc: string
-    date: string
-    content: string
-    style: any
-    color: string
-}
-
-
+type UpdateCardProps = {
+    imageSrc: string;
+    date: string;
+    content: string;
+    style: any;
+    color: string;
+};
 
 const UpdateCard: React.FC<UpdateCardProps> = ({
     imageSrc,
     date,
     content,
     style,
-    color
+    color,
 }) => {
-
     return (
-        <motion.div className={`flex flex-col p-6 rounded-2xl border-2 border-black border-solid w-[400px] shadow-cartoon ${color}`} style={style}>
+        <motion.div className={`flex w-[90vw] flex-col rounded-2xl border-2 border-solid border-black p-6 shadow-cartoon md:w-[400px] ${color}`} style={style}>
             <img
                 loading="lazy"
                 src={imageSrc}
                 alt=""
                 draggable={false}
-                className={`object-cover w-full aspect-square rounded-2xl select-none`}
+                className="h-full w-full select-none rounded-2xl object-cover"
             />
             <time
                 dateTime={date}
@@ -34,9 +31,9 @@ const UpdateCard: React.FC<UpdateCardProps> = ({
             >
                 {date}
             </time>
-            <p className={`mt-3.5 text-xl text-black`}>{content}</p>
+            <p className="mt-3.5 text-black md:text-xl">{content}</p>
         </motion.div>
-    )
-}
+    );
+};
 
-export default UpdateCard
+export default UpdateCard;

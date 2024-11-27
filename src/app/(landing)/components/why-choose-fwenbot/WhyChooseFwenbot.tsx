@@ -1,18 +1,19 @@
-import React from 'react'
-import { useScroll, motion, useTransform } from 'framer-motion'
-import useSpringScroll from '@/hooks/useSpringScroll'
+import { motion, MotionValue, useTransform } from 'framer-motion';
+import React from 'react';
 
-const WhyChooseFwenbot = () => {
-    const ref = React.useRef(null)
-    const scrollYProgress = useSpringScroll({
-        ref: ref,
-        offset: ['start end', 'end start']
-    })
+
+const WhyChooseFwenbot = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+    const ref = React.useRef(null);
+    // const scrollYProgress = useSpringScroll({
+    //     ref,
+    //     offset: ['start end', 'end start'],
+    // });
     return (
-        <motion.section className="mx-auto"
+        <motion.div
+            className="mx-auto"
             style={{
                 // y: useTransform(scrollYProgress, [0, 0.3], ["50vh", "0vh"]),
-                opacity: useTransform(scrollYProgress, [0, 0.6], [0, 1])
+                opacity: useTransform(scrollYProgress, [0, 0.3], [0, 1]),
             }}
             ref={ref}
         >
@@ -20,16 +21,24 @@ const WhyChooseFwenbot = () => {
                 {/* Features to<br /> support your trading */}
                 Why choose FwenBot?
             </h1>
-            <p className="ml-2.5 mt-6 text-xl">
+            <motion.p className="mt-2"
+                style={{
+                    opacity: useTransform(scrollYProgress, [0.6, 0.65], [1, 0]),
+                }}
+            >
                 With the thought of our friends in mind, we want Fwen Bot to be
-                as welcoming and intuitive as possible. <br /> <br />
-                Our bot is designed with a strong focus on user experience,
+                as welcoming and intuitive as possible.
+                {' '}
+                <br />
+                {' '}
+                <br />
+                Designed with a strong focus on user experience,
                 ensuring that whether you&apos;re a seasoned trader or new to
                 the crypto space, Fwen Bot will always be your number one
                 choice.
-            </p>
-        </motion.section>
-    )
-}
+            </motion.p>
+        </motion.div>
+    );
+};
 
-export default WhyChooseFwenbot
+export default WhyChooseFwenbot;

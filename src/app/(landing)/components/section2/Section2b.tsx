@@ -1,31 +1,32 @@
-import { useScroll, motion, useTransform } from 'framer-motion'
+import { motion, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
-import Intro from './about'
+
+import useSpringScroll from '@/hooks/useSpringScroll'
+import { transform } from '@/utils/transform'
+
 import PartnersBanner from './partners-banner'
 import Stats from './stats/Stats'
-import { transform } from '@/utils/transform'
-import useSpringScroll from '@/hooks/useSpringScroll'
 
 export const Section2b = () => {
-    const ref = useRef<HTMLDivElement>(null)
+    const ref = useRef<HTMLDivElement>(null);
     const scrollYProgress = useSpringScroll({
-        ref: ref,
+        ref,
         offset: ['start end', 'end end'],
-    })
+    });
 
     return (
         <motion.section
             ref={ref}
-            className=" h-[400vh] md:h-[400vh] w-full relative "
+            className=" relative h-[400vh] w-full md:h-[400vh] "
 
-            style={{ background: useTransform(scrollYProgress, [0, 0.3], ["#f5f2e520", "#f5f2e5"]), borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ["999px", "0px", "0px", "999px"]) }}
+            style={{ background: useTransform(scrollYProgress, [0, 0.3], ['#f5f2e520', '#f5f2e5']), borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ['999px', '0px', '0px', '999px']) }}
         >
-            <div className='sticky top-0 left-0 h-screen max-sm:min-h-fit md:max-h-screen flex flex-col py-16 overflow-hidden'>
+            <div className="container sticky left-0 top-0 flex h-screen flex-col overflow-hidden py-16 max-sm:min-h-fit md:max-h-screen">
 
                 <motion.h1
-                    className="font-normal container mx-auto mb-10"
+                    className="container mx-auto mb-10 font-normal"
                     style={{
-                        y: transform(scrollYProgress, [0, 0.2], ["100vh", "0vh"]),
+                        y: transform(scrollYProgress, [0, 0.2], ['100vh', '0vh']),
                     }}
                 >
                     Capture the market with Fwenbot.
@@ -35,5 +36,5 @@ export const Section2b = () => {
 
             </div>
         </motion.section>
-    )
-}
+    );
+};

@@ -18,7 +18,7 @@ const RoadMap = () => {
     // // })
     const scrollYProgress = useSpringScroll({
         ref: containerRef,
-        offset: ['start 50%', 'end end']
+        offset: ['start end', 'end 20%']
     })
     // const width = useTransform(containerYProgress, [0, 1], [2560, 8])
     // const width = useTransform(scrollYProgress, [0, 0.4], [2560, 8])
@@ -30,13 +30,13 @@ const RoadMap = () => {
                 <div className="mx-auto container py-10 h-full w-full flex flex-col space-x-0 space-y-5 lg:flex-row lg:space-x-5 lg:space-y-0 relative items-center min-h-fit">
                     <div className="flex w-full flex-col space-y-5 lg:w-[40%]">
                         <motion.h1 style={{
-                            x: useTransform(scrollYProgress, [0, 0.4], ["-100vw", "0vw"]),
+                            x: useTransform(scrollYProgress, [0, 0.3], ["-100vw", "0vw"]),
                         }}
                             id="roadmap"
                         >Roadmap</motion.h1>
-                        <motion.p className="text-2xl"
+                        <motion.p className="md:text-2xl"
                             style={{
-                                x: useTransform(scrollYProgress, [0.1, 0.5], ["-100vw", "0vw"]),
+                                x: useTransform(scrollYProgress, [0.1, 0.3], ["-100vw", "0vw"]),
                             }}
                         >
                             We&apos;re actively listening to our community
@@ -74,7 +74,7 @@ const RoadMap = () => {
                             style={{
                                 background:
                                     'linear-gradient(180deg, #FEF08A 0%, #CFF7D1 80%, #BDE0FE 95%, #0000 100%)',
-                                scaleY: useTransform(scrollYProgress, [0, 0.5], [0, 1]),
+                                scaleY: useTransform(scrollYProgress, [0, 0.3], [0, 1]),
                             }}
                         />
                     </div>

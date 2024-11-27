@@ -77,7 +77,7 @@ const RecentUpdates: React.FC = () => {
 
     return (
         <motion.div ref={containerRef} className='h-[200vh]'>
-            <section className="container h-screen mx-auto flex flex-col overflow-hidden justify-center sticky top-0" ref={boxRef}>
+            <section className="container h-screen mx-auto flex flex-col overflow-hidden justify-center sticky top-0 py-6" ref={boxRef}>
                 <motion.h1
                     id="recent-updates"
                     style={{
@@ -93,7 +93,7 @@ const RecentUpdates: React.FC = () => {
                 </motion.p>
                 <motion.div
                     ref={ref}
-                    className="no-scrollbar relative z-10 mt-8 flex gap-6 p-2 w-fit cursor-grab"
+                    className="no-scrollbar h-full relative z-10 mt-4 md:mt-8 flex gap-6 p-2 w-fit cursor-grab"
                     drag={'x'}
                     style={{ x }}
                     dragConstraints={{
