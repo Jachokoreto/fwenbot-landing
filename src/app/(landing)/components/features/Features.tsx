@@ -53,6 +53,7 @@ const Features: React.FC = () => {
         box: 'content-box',
     });
     const [offset, setOffset] = React.useState(0);
+    const [yTransformRange, setYTransformRange] = React.useState({ input: [0, 0.55], output: ['100vh', '0vh'] });
 
     useEffect(() => {
         if (ref.current) {
@@ -62,7 +63,16 @@ const Features: React.FC = () => {
                 setOffset(-(width - containerW));
             }
         }
-    }, [ref, width]);
+    }, [containerW, ref, width]);
+
+
+    useEffect(() => {
+        // if the screen is mobile, update the y transform range to {input:[0, 0.55, 0.6, 0.65], output:['100vh', '0vh', '0vh', '-25vh']}
+        if (containerW < 768) {
+            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100vh', '0vh', '0vh', '-25vh'] });
+        }
+    }, [containerW]);
+
 
     return (
         <motion.section
@@ -74,7 +84,7 @@ const Features: React.FC = () => {
                 ref={containerRef}
             >
                 {/* <motion.h1
-                    className='leading-relaxed'
+                    className='leading-relaxed'p
 
                     style={{ y: useTransform(scrollYProgress, [0, 0.3], ["100vh", "0vh"]) }}
                 >
@@ -89,17 +99,16 @@ const Features: React.FC = () => {
                     className="flex w-fit gap-5 mt-5"
                     ref={childRef}
                     style={{
-                        y: useTransform(scrollYProgress, [0, 0.55, 0.6, 0.65], ['100vh', '0vh', '0vh', '-25vh']),
+                        y: useTransform(scrollYProgress, yTransformRange.input, yTransformRange.output),
                         x: useTransform(scrollYProgress, [0.65, 0.9], [0, offset]),
                     }}
                 >
                     {features.map((feature, index) => (
                         <FeatureCard
-                            key={index}
+                            key={`feature-${feature.title}`}
                             {...feature}
-                            style={{
-                                y: useTransform(scrollYProgress, [0.1, 0.3 + index * 0.05], ['100vh', '0vh']),
-                            }}
+                            index={index}
+                            scrollYProgress={scrollYProgress}
                         />
                     ))}
                 </motion.div>

@@ -1,6 +1,6 @@
 import type { MotionValue } from 'framer-motion';
 import { motion, useTransform } from 'framer-motion';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 // Array of elements to animate
 const elements = [
@@ -14,37 +14,50 @@ const elements = [
     },
 ];
 
+
+
+const TextElement = ({ element, index, scrollYProgress }: { element: any, index: number, scrollYProgress: MotionValue<number> }) => {
+    const start = (index + 1) / 10;
+    const end = Math.min(start + 0.2, 1);
+    const y = useTransform(scrollYProgress, [start, end], [500, 0]);
+
+    return (
+        <motion.p
+            className="mt-2 w-full max-w-[480px] text-xl md:mt-5"
+            style={{ y }}
+        >
+            {element.content}
+        </motion.p>
+    )
+}
+
+// refactor the svg element component
+const SvgElement = ({ element, index, scrollYProgress }: { element: any, index: number, scrollYProgress: MotionValue<number> }) => {
+    const start = (index + 1) / 10;
+    const end = Math.min(start + 0.2, 1);
+    const y = useTransform(scrollYProgress, [start, end], [500, 0]);
+
+    return (
+        <motion.div
+            style={{ y }}
+        >
+            <img src={element.content} alt={`SVG ${index + 1}`} width="100%" height="auto" />
+        </motion.div>
+    );
+}
+
 const About = ({
     scrollYProgress,
 }: {
     scrollYProgress: MotionValue<number>;
 }) => {
     // Generate transforms programmatically for each element
-    const transforms = elements.map((_, index) => {
-        const start = (index + 1) / 10;
-        const end = Math.min(start + 0.2, 1);
-        return useTransform(scrollYProgress, [start, end], [500, 0]);
-    });
 
     const imageScale = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [0, 1, 1, 0]);
     const imageY = useTransform(scrollYProgress, [0.2, 0.5, 0.8, 1], [-1000, 0, 0, 1000]);
 
     const containerRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        const resizeFont = () => {
-            if (!containerRef.current) {
-                return;
-            }
-        };
-
-        resizeFont();
-        window.addEventListener('resize', resizeFont);
-
-        return () => {
-            window.removeEventListener('resize', resizeFont);
-        };
-    }, [containerRef]);
 
     return (
         <motion.div
@@ -60,22 +73,11 @@ const About = ({
                     {elements.map((element, index) => {
                         if (element.type === 'svg') {
                             return (
-                                <motion.div
-                                    key={index}
-                                    style={{ y: transforms[index] }}
-                                >
-                                    <img src={element.content} alt={`SVG ${index + 1}`} width="100%" height="auto" />
-                                </motion.div>
+                                <SvgElement scrollYProgress={scrollYProgress} key={element.type} element={element} index={index} />
                             );
                         } else if (element.type === 'p') {
                             return (
-                                <motion.p
-                                    key={index}
-                                    className="mt-2 w-full max-w-[480px] text-xl md:mt-5"
-                                    style={{ y: transforms[index] }}
-                                >
-                                    {element.content}
-                                </motion.p>
+                                <TextElement scrollYProgress={scrollYProgress} key={element.type} element={element} index={index} />
                             );
                         }
                         return null;
@@ -85,7 +87,7 @@ const About = ({
                     className="mx-auto flex h-1/3 w-full shrink-0 items-center justify-center object-contain md:h-full md:w-auto md:max-w-[50%]"
                     style={{ scale: imageScale, y: imageY }}
                 >
-                    <img src="/assets/FwenBot-about-us.gif" alt="friends" className='h-full' />
+                    <img src="/assets/FwenBot-about-us.gif" alt="friends" className='' />
                 </motion.div>
             </div>
         </motion.div>

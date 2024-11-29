@@ -21,7 +21,7 @@ export const Section2b = () => {
 
             style={{ background: useTransform(scrollYProgress, [0, 0.3], ['#f5f2e520', '#f5f2e5']), borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ['999px', '0px', '0px', '999px']) }}
         >
-            <div className="container sticky left-0 top-0 flex h-screen flex-col overflow-hidden py-16 max-sm:min-h-fit md:max-h-screen">
+            <div className="mx-auto container sticky left-0 top-0 flex h-screen flex-col overflow-hidden py-16 max-sm:min-h-fit md:max-h-screen">
 
                 <motion.h1
                     className="container mx-auto mb-10 font-normal"

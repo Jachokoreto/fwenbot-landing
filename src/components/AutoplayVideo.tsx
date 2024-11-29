@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useEffect, useRef } from 'react';
 
 export const AutoplayVideo = ({ children }: { children: React.ReactNode }) => {
     const videoRefs = useRef<HTMLVideoElement[]>([]);
-    const clickListenerAdded = useRef(false);  // Track if click listener is added
+    const clickListenerAdded = useRef(false); // Track if click listener is added
 
     const attemptToPlayAllVideos = () => {
         videoRefs.current.forEach((video) => {
@@ -30,7 +30,7 @@ export const AutoplayVideo = ({ children }: { children: React.ReactNode }) => {
 
     return (
         <video
-            className='size-full object-contain'
+            className="size-full object-contain"
             muted
             loop
             playsInline
@@ -39,7 +39,6 @@ export const AutoplayVideo = ({ children }: { children: React.ReactNode }) => {
                     el.play().catch(() => {
                         videoRefs.current.push(el);
                     }); // Attempt to play video
-
                 }
             }}
         // preload="metadata"

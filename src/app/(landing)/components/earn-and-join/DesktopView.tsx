@@ -1,68 +1,68 @@
-import { AutoplayVideo } from '@/components/AutoplayVideo'
-import Button from '@/components/Button'
-import useSpringScroll from '@/hooks/useSpringScroll'
 import {
     motion,
     useMotionValueEvent,
-    useScroll,
-    useSpring,
     useTransform,
-} from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { useResizeObserver } from 'usehooks-ts'
-import Link from 'next/link'
+} from 'framer-motion';
+import Link from 'next/link';
+import { useEffect, useRef, useState } from 'react';
+import { useResizeObserver } from 'usehooks-ts';
+
+import Button from '@/components/Button';
+import useSpringScroll from '@/hooks/useSpringScroll';
 
 const earnWithFwenBot = [
     'Through our shilling and referral programs, you have the opportunities to earn while you trade and share your insights.',
     'Rewards for promoting successful trades within your community.',
     'Rewards for inviting others to experience the benefits of Fwen Bot',
-]
+];
 
 const DesktopView = () => {
-    const desktopRef = useRef<HTMLDivElement | null>(null)
-    const videoRef = useRef<HTMLDivElement | null>(null)
-    const containerRef = useRef<HTMLDivElement | null>(null)
+    const desktopRef = useRef<HTMLDivElement | null>(null);
+    const videoRef = useRef<HTMLDivElement | null>(null);
+    const containerRef = useRef<HTMLDivElement | null>(null);
     const scrollYProgress = useSpringScroll({
         ref: desktopRef,
         offset: ['start start', 'end end'],
-    })
+    });
 
     const { width = 0 } = useResizeObserver({
         ref: containerRef,
         box: 'content-box',
-    })
+    });
 
-    const [videoX, setVideoX] = useState(0)
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+    const [videoX, setVideoX] = useState(0);
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-        if (latest > 0.65) setIsButtonDisabled(false)
-        else setIsButtonDisabled(true)
-    })
+        if (latest > 0.65) {
+            setIsButtonDisabled(false);
+        } else {
+            setIsButtonDisabled(true);
+        }
+    });
 
-    const earnX = useTransform(scrollYProgress, [0.3, 0.45], ['0%', '40%'])
-    const earnOpacity = useTransform(scrollYProgress, [0.3, 0.45], [1, 0])
-    const joinX = useTransform(scrollYProgress, [0.55, 0.67], ['60%', '100%'])
-    const joinOpacity = useTransform(scrollYProgress, [0.55, 0.7], [0, 1])
-
+    const earnX = useTransform(scrollYProgress, [0.3, 0.45], ['0%', '40%']);
+    const earnOpacity = useTransform(scrollYProgress, [0.3, 0.45], [1, 0]);
+    const joinX = useTransform(scrollYProgress, [0.55, 0.67], ['60%', '100%']);
+    const joinOpacity = useTransform(scrollYProgress, [0.55, 0.7], [0, 1]);
 
     useEffect(() => {
         if (videoRef && videoRef.current && width) {
             const resizeObserver = new ResizeObserver((entries) => {
                 if (entries[0]) {
-                    setVideoX(width - entries[0].contentRect.width)
+                    setVideoX(width - entries[0].contentRect.width);
                 }
-            })
-            resizeObserver.observe(videoRef.current)
+            });
+            resizeObserver.observe(videoRef.current);
             return () => {
-                resizeObserver.disconnect()
-            }
+                resizeObserver.disconnect();
+            };
         }
-    }, [width, videoRef])
+    }, [width, videoRef]);
 
     return (
-        <motion.div className="h-[200vh] w-full bg-secondary " ref={desktopRef} style={{ borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ["999px", "0px", "0px", "999px"]) }}>
-            <div className="sticky top-0 flex h-screen items-center container mx-auto" ref={containerRef}>
+        <motion.div className="h-[200vh] w-full " ref={desktopRef} style={{ background: useTransform(scrollYProgress, [0, 0.3], ['#f5f2e520', '#f5f2e5']), borderRadius: useTransform(scrollYProgress, [0.1, 0.3, 0.95, 1], ['999px', '0px', '0px', '999px']) }}>
+            <div className="container sticky top-0 mx-auto flex h-screen items-center" ref={containerRef}>
                 <motion.div
                     className="absolute flex w-full max-w-[45%] flex-col space-y-5"
                     style={{ x: earnX, opacity: earnOpacity }}
@@ -81,7 +81,7 @@ const DesktopView = () => {
                                 >
                                     <p className="text-xl">{earn}</p>
                                 </div>
-                            )
+                            );
                         })}
                     </div>
                 </motion.div>
@@ -121,12 +121,12 @@ const DesktopView = () => {
                         x: useTransform(
                             scrollYProgress,
                             [0.3, 0.7],
-                            [videoX, 0]
+                            [videoX, 0],
                         ),
                     }}
                 >
                     <motion.div
-                        className="absolute h-full w-full"
+                        className="absolute size-full"
                         style={{ opacity: earnOpacity }}
                     >
                         {/* <AutoplayVideo>
@@ -141,7 +141,7 @@ const DesktopView = () => {
                     </motion.div>
 
                     <motion.div
-                        className="absolute h-full w-full"
+                        className="absolute size-full"
                         style={{ opacity: joinOpacity }}
                     >
                         {/* <AutoplayVideo>
@@ -157,7 +157,7 @@ const DesktopView = () => {
                 </motion.div>
             </div>
         </motion.div>
-    )
-}
+    );
+};
 
-export default DesktopView
+export default DesktopView;
