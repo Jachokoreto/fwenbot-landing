@@ -77,10 +77,10 @@ const Features: React.FC = () => {
         // if the screen is mobile, update the y transform range to {input:[0, 0.55, 0.6, 0.65], output:['100vh', '0vh', '0vh', '-25vh']}
         if (outerContainerW && outerContainerW < 768) {
             setIsMobile(true);
-            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100%', '0%', '0%', '-40%'] });
+            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100%', '0%', '0%', '-30%'] });
         } else {
             setIsMobile(false);
-            setYTransformRange({ input: [0, 0.55], output: ['100vh', '0vh'] });
+            setYTransformRange({ input: [0, 0.55], output: ['100%', '0%'] });
         }
     }, [outerContainerW]);
 
