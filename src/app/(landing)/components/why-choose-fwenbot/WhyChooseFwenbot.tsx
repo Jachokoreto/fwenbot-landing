@@ -1,13 +1,14 @@
-import { motion, MotionValue, useTransform } from 'framer-motion';
+import type { MotionValue } from 'framer-motion';
+import { motion, useTransform } from 'framer-motion';
 import React from 'react';
 
-
-const WhyChooseFwenbot = ({ scrollYProgress }: { scrollYProgress: MotionValue<number> }) => {
+const WhyChooseFwenbot = ({ scrollYProgress, isMobile }: { scrollYProgress: MotionValue<number>; isMobile: boolean }) => {
     const ref = React.useRef(null);
     // const scrollYProgress = useSpringScroll({
     //     ref,
     //     offset: ['start end', 'end start'],
     // });
+    const textOpacity = useTransform(scrollYProgress, [0.6, 0.65], [1, 0]);
     return (
         <motion.div
             className="mx-auto"
@@ -21,9 +22,10 @@ const WhyChooseFwenbot = ({ scrollYProgress }: { scrollYProgress: MotionValue<nu
                 {/* Features to<br /> support your trading */}
                 Why choose FwenBot?
             </h1>
-            <motion.p className="mt-2"
+            <motion.p
+                className="mt-2"
                 style={{
-                    opacity: useTransform(scrollYProgress, [0.6, 0.65], [1, 0]),
+                    opacity: isMobile ? textOpacity : 1,
                 }}
             >
                 With the thought of our friends in mind, we want Fwen Bot to be

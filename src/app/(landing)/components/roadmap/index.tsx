@@ -20,7 +20,7 @@ const RoadMap = () => {
     // // })
     const scrollYProgress = useSpringScroll({
         ref: containerRef,
-        offset: ['start end', 'end 60%'],
+        offset: ['start end', 'end end'],
     });
     // const width = useTransform(containerYProgress, [0, 1], [2560, 8])
     // const width = useTransform(scrollYProgress, [0, 0.4], [2560, 8])

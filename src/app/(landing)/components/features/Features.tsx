@@ -52,11 +52,18 @@ const Features: React.FC = () => {
         ref: containerRef,
         box: 'content-box',
     });
+    const { width: outerContainerW = 0 } = useResizeObserver({
+        ref,
+        box: 'border-box',
+    });
     const [offset, setOffset] = React.useState(0);
     const [yTransformRange, setYTransformRange] = React.useState({ input: [0, 0.55], output: ['100vh', '0vh'] });
+    const [isMobile, setIsMobile] = React.useState(false);
 
     useEffect(() => {
+
         if (ref.current) {
+            console.log(width, containerW);
             if (width < containerW) {
                 setOffset(0);
             } else {
@@ -68,10 +75,14 @@ const Features: React.FC = () => {
 
     useEffect(() => {
         // if the screen is mobile, update the y transform range to {input:[0, 0.55, 0.6, 0.65], output:['100vh', '0vh', '0vh', '-25vh']}
-        if (containerW < 768) {
-            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100vh', '0vh', '0vh', '-25vh'] });
+        if (outerContainerW && outerContainerW < 768) {
+            setIsMobile(true);
+            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100%', '0%', '0%', '-40%'] });
+        } else {
+            setIsMobile(false);
+            setYTransformRange({ input: [0, 0.55], output: ['100vh', '0vh'] });
         }
-    }, [containerW]);
+    }, [outerContainerW]);
 
 
     return (
@@ -90,7 +101,7 @@ const Features: React.FC = () => {
                 >
                     Effortless Trading, <br />Limitless Potential
                 </motion.h1> */}
-                <WhyChooseFwenbot scrollYProgress={scrollYProgress} />
+                <WhyChooseFwenbot scrollYProgress={scrollYProgress} isMobile={isMobile} />
 
                 {/* <motion.p>
                     Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
