@@ -106,7 +106,7 @@ const Features: React.FC = () => {
                     Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
                 </motion.p> */}
                 <motion.div
-                    className="absolute top-1/2 flex w-fit gap-5 mt-5"
+                    className="max-sm:absolute max-sm:top-1/2 flex w-fit gap-5 mt-5"
                     ref={childRef}
                     style={{
                         y: useTransform(scrollYProgress, yTransformRange.input, yTransformRange.output),
