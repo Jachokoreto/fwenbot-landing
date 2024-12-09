@@ -63,7 +63,6 @@ const Features: React.FC = () => {
     useEffect(() => {
 
         if (ref.current) {
-            console.log(width, containerW);
             if (width < containerW) {
                 setOffset(0);
             } else {
@@ -77,7 +76,7 @@ const Features: React.FC = () => {
         // if the screen is mobile, update the y transform range to {input:[0, 0.55, 0.6, 0.65], output:['100vh', '0vh', '0vh', '-25vh']}
         if (outerContainerW && outerContainerW < 768) {
             setIsMobile(true);
-            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100%', '0%', '0%', '-30%'] });
+            setYTransformRange({ input: [0, 0.55, 0.6, 0.65], output: ['100%', '0%', '0%', '-50%'] });
         } else {
             setIsMobile(false);
             setYTransformRange({ input: [0, 0.55], output: ['100%', '0%'] });
@@ -88,7 +87,7 @@ const Features: React.FC = () => {
     return (
         <motion.section
             ref={ref}
-            className="mb-20 mt-10 h-[200vh]"
+            className="mb-20 mt-10 h-[300vh] md:h-[200vh]"
         >
             <div
                 className="container sticky left-0 top-0 mx-auto  h-screen justify-center overflow-hidden py-10 gap-4 md:gap-8"
@@ -107,7 +106,7 @@ const Features: React.FC = () => {
                     Automate your trades with precision. Enjoy real-time analytics and performance monitoring, tailored for your needs.
                 </motion.p> */}
                 <motion.div
-                    className="flex w-fit gap-5 mt-5"
+                    className="absolute top-1/2 flex w-fit gap-5 mt-5"
                     ref={childRef}
                     style={{
                         y: useTransform(scrollYProgress, yTransformRange.input, yTransformRange.output),

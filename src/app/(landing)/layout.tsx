@@ -1,22 +1,22 @@
-import type { Metadata } from 'next'
-import { Inter, Oswald, DM_Sans, Bebas_Neue } from 'next/font/google'
-import './globals.css'
-import Script from 'next/script'
-import { Suspense } from 'react'
+import './globals.css';
 
-const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' })
-const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
-const bebas = Bebas_Neue({ subsets: ['latin'], variable: '--font-bebas-neue', weight: '400' })
+import type { Metadata } from 'next';
+import { Bebas_Neue, DM_Sans, Oswald } from 'next/font/google';
+import { Suspense } from 'react';
+
+const dmSans = DM_Sans({ subsets: ['latin'], variable: '--font-dm-sans' });
+const oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' });
+const bebas = Bebas_Neue({ subsets: ['latin'], variable: '--font-bebas-neue', weight: '400' });
 
 export const metadata: Metadata = {
-    title: 'FwenBot',
-    description: 'Your friendly trading bot',
-}
+    title: 'FwenBot: Your Ultimate Discord Crypto Trading Companion',
+    description: 'Experience seamless cryptocurrency trading within your Discord server with FwenBot. Execute buy and sell orders effortlessly, share profitable projects, and earn rewards. Join over 1,200 users and trade with confidence using FwenBot\'s intuitive interface.',
+};
 
 export default function RootLayout({
     children,
 }: Readonly<{
-    children: React.ReactNode
+    children: React.ReactNode;
 }>) {
     return (
         <html lang="en">
@@ -35,5 +35,5 @@ export default function RootLayout({
                 </body>
             </Suspense>
         </html>
-    )
+    );
 }

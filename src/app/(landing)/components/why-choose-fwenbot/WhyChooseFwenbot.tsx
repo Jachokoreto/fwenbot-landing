@@ -18,10 +18,15 @@ const WhyChooseFwenbot = ({ scrollYProgress, isMobile }: { scrollYProgress: Moti
             }}
             ref={ref}
         >
-            <h1>
+            <motion.h1
+                className="mt-2"
+                style={{
+                    opacity: isMobile ? textOpacity : 1,
+                }}
+            >
                 {/* Features to<br /> support your trading */}
                 Why choose FwenBot?
-            </h1>
+            </motion.h1>
             <motion.p
                 className="mt-2"
                 style={{

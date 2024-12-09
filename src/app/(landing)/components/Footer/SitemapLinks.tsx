@@ -16,7 +16,7 @@ const sitemapLinks = [
 const SitemapLinks: React.FC = () => {
     return (
         <nav className="flex md:w-[200px] flex-col">
-            <h2 className="ml-4 text-2xl font-medium opacity-60">Sitemap</h2>
+            <h2 className="md:ml-4 text-2xl font-medium opacity-60">Sitemap</h2>
             <ul className="mt-2 flex gap-2 w-[200px] max-w-full flex-col justify-between  text-black">
                 {sitemapLinks.map((link, index) => (
                     <motion.li className='cursor-pointer rounded-xl bg-white/0 px-4 py-2'

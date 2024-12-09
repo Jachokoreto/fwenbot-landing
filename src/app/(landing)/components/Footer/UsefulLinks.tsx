@@ -9,7 +9,7 @@ const usefulLinks = ['Whitepaper']
 const UsefulLinks: React.FC = () => {
     return (
         <nav className="flex w-[200px] flex-col">
-            <h2 className="ml-4 text-2xl font-medium opacity-60">Useful Links</h2>
+            <h2 className="md:ml-4 text-2xl font-medium opacity-60">Useful Links</h2>
             <ul className="flex w-full flex-col whitespace-nowrap mt-2 text-black">
                 {usefulLinks.map((link, index) => (
                     <motion.li className='cursor-pointer rounded-xl bg-white/0 px-4 py-2'
